@@ -102,9 +102,10 @@ public class wartershot : MonoBehaviour
         // 1
         if (grabAction.GetLastStateDown(handType))
         {
+            warshot();
             if (collidingObject)
             {
-                warshot();
+             
             }
         }
 
