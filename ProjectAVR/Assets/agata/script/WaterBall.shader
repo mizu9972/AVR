@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+	_SurfaceColor("表面色",Color) = (1,1,1,1)
 	_DistortionTex("Distortion Texture(RG)",2D) = "grey"{}
 	_DistortionPower("Distortion Power",Range(0,1)) = 0
     }
@@ -50,7 +51,8 @@
 			//tiling offset
             float4 _MainTex_ST;
 			half4 _DistortionTex_ST;
-
+			
+			float4 _SurfaceColor;
 			half _DistortionPower;
 
             v2f vert (appdata v)
@@ -74,8 +76,7 @@
 			distortion *= _DistortionPower;
 
 			uv = uv + distortion;
-
-			return tex2D(_GrabPassTexture, uv);
+			return tex2D(_GrabPassTexture, uv) + _SurfaceColor;
                 // apply fog
                 //UNITY_APPLY_FOG(i.fogCoord, col);
                 //return col;
