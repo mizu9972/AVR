@@ -6,9 +6,14 @@ public class Coaster : MonoBehaviour
 {
     public List<Transform> waypoint;
     public int count = 0;
+
     public float speed = 5;
     [SerializeField]
     bool isMoving = false;
+
+    private float nowSpeed = 0;
+
+    public LookTarget lookTarget;
     //float x, y, z;
 
     //private void Start()
@@ -17,6 +22,12 @@ public class Coaster : MonoBehaviour
     //    y = transform.position.y;
     //    z = transform.position.z;
     //}
+    void Awake()
+    {
+        lookTarget.SetTarget(waypoint[count+1]);//ターゲットセット
+    }
+
+
     void Update()
     {
         Vector3 d = waypoint[count].position - transform.position;
@@ -30,8 +41,7 @@ public class Coaster : MonoBehaviour
             {
                 count = 0;
             }
-            //Mathf.Lerp
-            //transform.LookAt(Mathf.Lerp(transform.position.x,waypoint[count + 1].transform.position.x,0f));
+            lookTarget.SetTarget(waypoint[count]);//ターゲットセット
             
             return;
         }
