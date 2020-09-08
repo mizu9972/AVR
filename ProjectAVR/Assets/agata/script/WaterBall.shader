@@ -3,8 +3,11 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+	_SurfaceColor("表面色",Color) = (1,1,1,1)
 	_DistortionTex("Distortion Texture(RG)",2D) = "grey"{}
 	_DistortionPower("Distortion Power",Range(0,1)) = 0
+
+		_OutlineWidth("Outline Width",float) = 0.1
     }
     SubShader
     {
@@ -17,6 +20,49 @@
 		ColorMask RGB
 
 		GrabPass{"_GrabPassTexture"}
+
+		Pass
+		{
+			Stencil{
+			Ref 1
+			Comp always
+			Pass replace
+			}
+
+			Cull Front
+			ZWrite off
+
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+
+			#include "UnityCG.cginc"
+
+			struct appdata {
+				half4 vertex : POSITION;
+				half3 normal : NORMAL;
+			};
+
+			struct v2f {
+				half4 pos : SV_POSITION;
+			};
+
+			half _OutlineWidth;
+		
+			v2f vert(appdata v) {
+				v2f o = (v2f)0;
+	
+				o.pos = UnityObjectToClipPos(v.vertex + v.normal * _OutlineWidth);
+
+				return o;
+			}
+
+			fixed4 frag(v2f i) :SV_Target
+			{
+				return 0;
+			}
+				ENDCG
+		}
 
 
         Pass
@@ -50,7 +96,8 @@
 			//tiling offset
             float4 _MainTex_ST;
 			half4 _DistortionTex_ST;
-
+			
+			float4 _SurfaceColor;
 			half _DistortionPower;
 
             v2f vert (appdata v)
@@ -74,8 +121,7 @@
 			distortion *= _DistortionPower;
 
 			uv = uv + distortion;
-
-			return tex2D(_GrabPassTexture, uv);
+			return tex2D(_GrabPassTexture, uv) + _SurfaceColor * i.grabPos.w * 0.1;
                 // apply fog
                 //UNITY_APPLY_FOG(i.fogCoord, col);
                 //return col;
