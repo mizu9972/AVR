@@ -7,7 +7,8 @@
 	_DistortionTex("Distortion Texture(RG)",2D) = "grey"{}
 	_DistortionPower("Distortion Power",Range(0,1)) = 0
 
-		_OutlineWidth("Outline Width",float) = 0.1
+		_OutlineWidth("アウトラインの太さ",float) = 0.1
+		_OutlineColor("アウトラインの色",Color) = (0,0,0,1)
     }
     SubShader
     {
@@ -48,6 +49,7 @@
 			};
 
 			half _OutlineWidth;
+			fixed4 _OutlineColor;
 		
 			v2f vert(appdata v) {
 				v2f o = (v2f)0;
@@ -59,7 +61,7 @@
 
 			fixed4 frag(v2f i) :SV_Target
 			{
-				return 0;
+				return _OutlineColor;
 			}
 				ENDCG
 		}
