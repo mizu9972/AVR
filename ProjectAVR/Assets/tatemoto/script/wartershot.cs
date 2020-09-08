@@ -92,7 +92,7 @@ public class wartershot : MonoBehaviour
     {
         for (int i = 0; i < bulletnumber; i++)
         {
-            Instantiate(bullet, this.transform.position, Quaternion.identity);
+            Instantiate(bullet, this.transform.position, this.transform.rotation);
         }
     }
 
