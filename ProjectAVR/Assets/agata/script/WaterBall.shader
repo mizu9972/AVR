@@ -3,11 +3,13 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-	_SurfaceColor("表面色",Color) = (1,1,1,1)
-	_DistortionTex("Distortion Texture(RG)",2D) = "grey"{}
-	_DistortionPower("Distortion Power",Range(0,1)) = 0
+		_SurfaceColor("表面色",Color) = (1,1,1,1)
+		_DistortionTex("Distortion Texture(RG)",2D) = "grey"{}
+		_DistortionPower("Distortion Power",Range(0,1)) = 0
+		_AddTex("合成テクスチャ",2D) = "black"{}
 
-		_OutlineWidth("Outline Width",float) = 0.1
+		_OutlineWidth("アウトラインの太さ",float) = 0.1
+		_OutlineColor("アウトラインの色",Color) = (0,0,0,1)
     }
     SubShader
     {
@@ -21,6 +23,7 @@
 
 		GrabPass{"_GrabPassTexture"}
 
+			//アウトライン
 		Pass
 		{
 			Stencil{
@@ -48,6 +51,7 @@
 			};
 
 			half _OutlineWidth;
+			fixed4 _OutlineColor;
 		
 			v2f vert(appdata v) {
 				v2f o = (v2f)0;
@@ -59,12 +63,12 @@
 
 			fixed4 frag(v2f i) :SV_Target
 			{
-				return 0;
+				return _OutlineColor;
 			}
 				ENDCG
 		}
 
-
+			//屈折
         Pass
         {
             CGPROGRAM
@@ -93,9 +97,11 @@
             sampler2D _MainTex;
 			sampler2D _DistortionTex;
 			sampler2D _GrabPassTexture;
+			sampler2D _AddTex;
 			//tiling offset
             float4 _MainTex_ST;
 			half4 _DistortionTex_ST;
+			half4 _AddTex_ST;
 			
 			float4 _SurfaceColor;
 			half _DistortionPower;
@@ -118,13 +124,14 @@
 			half2 uv = half2(i.grabPos.x / i.grabPos.w, i.grabPos.y / i.grabPos.w);
 
 			half2 distortion = tex2D(_DistortionTex, i.uv + _Time.z * 0.1f).rg - 0.5;
+			half2 lightDistortion = tex2D(_AddTex, i.uv + _Time.z * 0.1f).rg - 0.5;
+
 			distortion *= _DistortionPower;
+			lightDistortion *= _DistortionPower;
 
 			uv = uv + distortion;
-			return tex2D(_GrabPassTexture, uv) + _SurfaceColor * i.grabPos.w * 0.1;
-                // apply fog
-                //UNITY_APPLY_FOG(i.fogCoord, col);
-                //return col;
+			return tex2D(_GrabPassTexture, uv) + tex2D(_AddTex, uv) + _SurfaceColor * i.grabPos.w * 0.1;
+
             }
             ENDCG
         }
