@@ -10,8 +10,8 @@ public class BaseEnemy : MonoBehaviour
         Max,
     }
 
-    public int hp;
-    public int atk;
+    [SerializeField] protected int hp;
+    [SerializeField] protected int atk;
 
     private Status status;
 

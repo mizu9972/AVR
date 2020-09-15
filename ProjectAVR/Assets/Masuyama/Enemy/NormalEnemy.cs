@@ -2,6 +2,5 @@
 {
     void Start()
     {
-        hp = 5;
     }
 }
