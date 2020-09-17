@@ -20,6 +20,8 @@ public class Coaster : MonoBehaviour
     private float v;//速さ
 
     public LookTarget lookTarget;
+    [Header("スタート地点")]
+    public Transform StartPoint;
     //float x, y, z;
 
     //private void Start()
@@ -30,6 +32,7 @@ public class Coaster : MonoBehaviour
     //}
     void Awake()
     {
+        this.transform.position = StartPoint.position;//初期位置決定
         lookTarget.SetTarget(waypoint[count+1]);//ターゲットセット
         SetSpeed(speed);
     }
@@ -80,5 +83,11 @@ public class Coaster : MonoBehaviour
         v = v * sign;//符号を元に戻す
 
         SetSpeed(v);//求めた値を代入
+    }
+
+    public void SetTargetObj(int Arraynum,Transform Target)
+    {
+        //配列の要素番号を指定してターゲットの変更
+        waypoint[Arraynum] = Target;
     }
 }
