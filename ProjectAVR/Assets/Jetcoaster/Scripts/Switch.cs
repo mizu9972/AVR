@@ -18,7 +18,11 @@ public class Switch : MonoBehaviour
     [Header("コースタースクリプトの本体")]
     public Coaster coaster;
 
+    [Header("ActionsTestスクリプト")]
+    public ActionsTest actionsTest;
+
     private Transform NowObj;//現在有効化されているオブジェクト
+    private int NowCount;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +37,20 @@ public class Switch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(actionsTest.GetGrab()&&ArrayNum!=coaster.GetCount())
+        {
+            switch (isSwtOn)
+            {
+                case true:
+                    SwitchOff();
+                    break;
+                case false:
+                    SwitchOn();
+                    break;
+            }
+        }
         //テスト
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return) && ArrayNum != coaster.GetCount())
         {
             switch(isSwtOn)
             {
