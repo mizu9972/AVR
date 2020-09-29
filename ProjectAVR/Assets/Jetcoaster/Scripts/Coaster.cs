@@ -90,4 +90,9 @@ public class Coaster : MonoBehaviour
         //配列の要素番号を指定してターゲットの変更
         waypoint[Arraynum] = Target;
     }
+
+    public int GetCount()
+    {
+        return count;
+    }
 }
