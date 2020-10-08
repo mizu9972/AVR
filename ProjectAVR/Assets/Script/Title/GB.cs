@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Valve.VR;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GB: MonoBehaviour
 {
@@ -52,11 +54,11 @@ public class GB: MonoBehaviour
     {
         if (grabAction.GetLastStateDown(handType))
         {
-            if (collidingObject)
-            {
+          
+                Debug.Log("a");
                 gameObject.GetComponent<TitleManager>().GoGameScene();
                // Quit();
-            }
+            
         }
     }
 
