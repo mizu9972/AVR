@@ -19,6 +19,10 @@
       "skeleton": "/skeleton/hand/right"
     },
     {
+      "name": "/actions/default/in/TrackPad",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     }
