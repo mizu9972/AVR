@@ -7,7 +7,7 @@ public class CameraPostEffect : MonoBehaviour
 {
 
     [SerializeField, Header("マテリアル")]
-    private Material material;
+    private Material material = null;
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
