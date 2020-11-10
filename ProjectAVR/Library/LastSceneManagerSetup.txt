@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/agata/scene/HunikiDevelop.unity
-=======
-- path: Assets/tatemoto/Scene/hora.unity
->>>>>>> いろいろ追加
+- path: Assets/tatemoto/Scene/kari.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
