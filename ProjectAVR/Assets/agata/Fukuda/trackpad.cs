@@ -11,6 +11,9 @@ public class trackpad : MonoBehaviour
     private Vector2 pos;
 
     float r, sita;
+
+    [SerializeField]
+    float speed = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +24,60 @@ public class trackpad : MonoBehaviour
     void Update()
     {
         pos = TrackPad.GetLastAxis(SteamVR_Input_Sources.RightHand);
-        transform.localPosition = new Vector3(pos.x, 0, pos.y);
+        //transform.localPosition = new Vector3(pos.x, 0, pos.y);
 
         r = Mathf.Sqrt(pos.x * pos.x + pos.y * pos.x);
         sita = Mathf.Atan2(pos.y, pos.x) / Mathf.PI * 180;
 
+        
+        //💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
 
-        Debug.Log(r + "" + sita);
+        Vector3 kakudo = new Vector3(pos.x,0,pos.y) ;
+
+        Vector3 maware = Quaternion.Euler(kakudo) * Vector3.forward;
+
+        //入力範囲くそ狭いのにシビアかも💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
+
+        /* 💩💩💩💩💩💩💩💩💩💩💩💩使い方💩💩💩💩💩💩💩💩💩💩💩💩
+         
+         
+            Say!（Yeah!） 
+
+            ほら その顔上げて　みんなで手を取れば 
+
+            （Fuwa、Fuwa、Fuwa、Fuwa） 
+            Dive!（Foo!）まだまだ道の途中 世界を越えよう  
+
+            （せーのっ!） 
+
+            Say!（Yeah!） 
+
+            ほら 推しお仕事も止まらない 全力ですから！ 
+
+            （Fuwa、Fuwa、Fuwa、Fuwa、Foo!） 
+
+            夢を書きかえたら 追いかけ続けよう 
+
+            ともに（はい!）繋ぐ（はい!） 
+
+            ファンファーレ（Go!）  
+         */
+
+
+
+
+
+        if (r > 0.1)
+        {
+   
+            transform.position += -kakudo * speed * Time.deltaTime;
+
+           
+            Debug.Log(maware);
+            Debug.Log(kakudo);
+        }
+        //💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
+
     }
 
 }
