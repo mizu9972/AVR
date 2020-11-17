@@ -46,6 +46,7 @@ public class ControllerGrabObject : MonoBehaviour
         {
             SetCollidingObject(other);
         }
+        print("ごみごみ " + handType);
     }
 
     public void OnTriggerStay(Collider other)
@@ -58,15 +59,12 @@ public class ControllerGrabObject : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "gomi"|| other.gameObject.tag == "gomibako")
+        if (!collidingObject)
         {
-            if (!collidingObject)
-            {
-                return;
-            }
-
-            collidingObject = null;
+            return;
         }
+
+        collidingObject = null;
     }
 
     private void SetCollidingObject(Collider col)

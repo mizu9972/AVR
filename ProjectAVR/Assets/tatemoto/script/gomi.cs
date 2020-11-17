@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gomi : MonoBehaviour
 {
-    public int gomimax = 6;
+    public int gomimax = 100;
     public bool gomiflag = true;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class gomi : MonoBehaviour
         {
             gomiflag = false;
         }
-        if(gomimax==6)
+        if(gomimax==100)
         {
             gomiflag = true;
         }
