@@ -6,11 +6,18 @@ using UnityEngine;
 public class CameraPostEffect : MonoBehaviour
 {
 
-    [SerializeField, Header("マテリアル")]
+    [SerializeField, Header("ノイズマテリアル")]
     private Material material = null;
+
+    [SerializeField, Header("ノイズ以外描画レンダーテクスチャ")]
+    private RenderTexture baseRenderTex = null;
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
+
+        material.SetTexture("_AddRenderTex", baseRenderTex);
+
         Graphics.Blit(source, destination, material);
+        
     }
 }

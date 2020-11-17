@@ -1,4 +1,4 @@
-﻿Shader "Unlit/DirtObject"
+﻿Shader "Unlit/PostRenderAdd"
 {
     Properties
     {
