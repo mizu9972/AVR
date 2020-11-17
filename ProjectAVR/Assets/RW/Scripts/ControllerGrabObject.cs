@@ -42,22 +42,31 @@ public class ControllerGrabObject : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        SetCollidingObject(other);
+        if (other.gameObject.tag == "gomi"|| other.gameObject.tag == "gomibako")
+        {
+            SetCollidingObject(other);
+        }
     }
 
     public void OnTriggerStay(Collider other)
     {
-        SetCollidingObject(other);
+        if (other.gameObject.tag == "gomi"|| other.gameObject.tag == "gomibako")
+        {
+            SetCollidingObject(other);
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (!collidingObject)
+        if (other.gameObject.tag == "gomi"|| other.gameObject.tag == "gomibako")
         {
-            return;
-        }
+            if (!collidingObject)
+            {
+                return;
+            }
 
-        collidingObject = null;
+            collidingObject = null;
+        }
     }
 
     private void SetCollidingObject(Collider col)

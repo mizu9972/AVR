@@ -45,6 +45,8 @@ public class BoardingAnimeManager : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(BoardingAnimeManager))]
 public class BAMEditor : Editor
 {
@@ -74,3 +76,5 @@ public class BAMEditor : Editor
         BAM.UpPanelRotateTime = EditorGUILayout.FloatField("回転時間", BAM.UpPanelRotateTime);
     }
 }
+
+#endif
