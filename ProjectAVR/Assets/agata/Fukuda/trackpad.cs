@@ -11,6 +11,8 @@ public class trackpad : MonoBehaviour
     private Vector2 pos;
 
     float r, sita;
+
+    float speed = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,21 @@ public class trackpad : MonoBehaviour
         r = Mathf.Sqrt(pos.x * pos.x + pos.y * pos.x);
         sita = Mathf.Atan2(pos.y, pos.x) / Mathf.PI * 180;
 
+        
+        //💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
 
-        Debug.Log(r + "" + sita);
+        Vector3 kakudo = new Vector3(0,0,sita) ;
+
+        Vector3 maware = Quaternion.Euler(kakudo) * Vector3.forward;
+
+        if (r > 0.7)
+        {
+            transform.position += maware * speed * Time.deltaTime;
+
+            Debug.Log(r + "" + sita);
+            Debug.Log(maware);
+        }
+
     }
 
 }
