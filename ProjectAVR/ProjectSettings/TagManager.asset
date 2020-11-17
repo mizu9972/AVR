@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - lever
   - gomi
+  - gomibako
+  - yogore
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
+  - filed
   - 
-  - DirtNoise
   - 
   - 
   - 
