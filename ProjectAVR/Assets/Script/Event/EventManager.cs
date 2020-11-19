@@ -5,10 +5,10 @@ using UnityEngine;
 public class EventManager : SingletonMonoBehaviour<EventManager>
 {
     [SerializeField,Header("イベントのリスト")]
-    private List<EventSystem> m_EventList = new List<EventSystem>();
+    private List<EventBase> m_EventList = new List<EventBase>();
 
     [SerializeField, Header("イベントのDictionaly")]
-    private Dictionary<string, List<EventSystem>> m_EventDict = new Dictionary<string, List<EventSystem>>();
+    private Dictionary<string, List<EventBase>> m_EventDict = new Dictionary<string, List<EventBase>>();
     private int m_DictCount = 0;//Dictionary用のカウント変数
 
     [SerializeField, Header("アクティブイベントの数")]
@@ -61,48 +61,48 @@ public class EventManager : SingletonMonoBehaviour<EventManager>
         //}
     }
 
-    public void StartEvent(EventSystem eventsystem)//イベントの開始
+    public void StartEvent(EventBase eventbase)//イベントの開始
     {
-        eventsystem.NowEventFlag = true;//イベントのフラグを立てる
-        m_EventList.Add(eventsystem);//イベントリストにイベントを追加
+        eventbase.NowEventFlag = true;//イベントのフラグを立てる
+        m_EventList.Add(eventbase);//イベントリストにイベントを追加
 
         //EventSystem[] ev = new EventSystem[1];
         //ev[0] = eventsystem;
 
-        List<EventSystem> addSystemList = new List<EventSystem>();
-        addSystemList.Add(eventsystem);
+        List<EventBase> addSystemList = new List<EventBase>();
+        addSystemList.Add(eventbase);
 
         ////同じkeyがあるかを判定して同じkeyがあれば配列の2盤目以降に追加
-        if(m_EventDict.ContainsKey(eventsystem.EventName))
+        if(m_EventDict.ContainsKey(eventbase.EventName))
         {
-            m_EventDict[eventsystem.EventName].Add(eventsystem);   
+            m_EventDict[eventbase.EventName].Add(eventbase);   
         }
         else
         {
-            m_EventDict.Add(eventsystem.EventName, addSystemList);
+            m_EventDict.Add(eventbase.EventName, addSystemList);
         }
         
     }
 
-    public void StartOnceEvent(EventSystem eventsystem)//1回限定のイベントを開始
+    public void StartOnceEvent(EventBase eventbase)//1回限定のイベントを開始
     {
-        eventsystem.OnceFlag = true;//1回限定用のフラグを立てる
-        m_EventList.Add(eventsystem);
+        eventbase.OnceFlag = true;//1回限定用のフラグを立てる
+        m_EventList.Add(eventbase);
 
-        List<EventSystem> addSystemList = new List<EventSystem>();
-        addSystemList.Add(eventsystem);
+        List<EventBase> addSystemList = new List<EventBase>();
+        addSystemList.Add(eventbase);
         //同じkeyがあるかを判定して同じkeyがあれば配列の2盤目以降に追加
-        if (m_EventDict.ContainsKey(eventsystem.EventName))
+        if (m_EventDict.ContainsKey(eventbase.EventName))
         {
-            m_EventDict[eventsystem.EventName].Add(eventsystem);
+            m_EventDict[eventbase.EventName].Add(eventbase);
         }
         else
         {
-            m_EventDict.Add(eventsystem.EventName, addSystemList);
+            m_EventDict.Add(eventbase.EventName, addSystemList);
         }
     }
 
-    public List<EventSystem> GetActiveEvent()//アクティブ状態のイベントを取得
+    public List<EventBase> GetActiveEvent()//アクティブ状態のイベントを取得
     {
         return m_EventList;
     }

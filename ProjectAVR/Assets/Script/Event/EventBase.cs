@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventSystem : MonoBehaviour
+public class EventBase : MonoBehaviour
 {
     protected bool m_OnceFlag = false;//1回限定のイベントのアクティブ状態
     protected bool m_NowEventFlag = false;//イベントのアクティブ状態
