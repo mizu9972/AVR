@@ -689,7 +689,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646130378}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 162ada6f48de154429d99fc618374db9, type: 2}
   m_CullingMode: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965247416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1bf6e291d65224468746940aee42c7d, type: 3}
   m_Name: 
@@ -1816,17 +1816,17 @@ PrefabInstance:
     - target: {fileID: 1185661610810068097, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6
+      value: 2.21
       objectReference: {fileID: 0}
     - target: {fileID: 1185661610810068097, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 1185661610810068097, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 1185661610810068097, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
         type: 3}
