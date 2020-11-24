@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class EscapeAnim : MonoBehaviour
 {
@@ -8,13 +9,40 @@ public class EscapeAnim : MonoBehaviour
     private Animator animator = null;
 
     [ContextMenu("アニメーション開始")]
-    public void StartAnim()
+    public void StartEscape()
     {
-        if(animator == null)
+        animator.SetTrigger("EscapeStart");
+    }
+    //[ContextMenu("アニメーション開始")]
+    //public void StartAnim()
+    //{
+    //    if(animator == null)
+    //    {
+    //        return;
+    //    }
+
+    //    animator.Play("Entry");
+    //}
+}
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(EscapeAnim))]
+class EscapeAnimEditor : Editor
+{
+    EscapeAnim m_EscapeAnim;
+
+    public override void OnInspectorGUI()
+    {
+        m_EscapeAnim = target as EscapeAnim;
+        serializedObject.Update();
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("アニメーション開始"))
         {
-            return;
+            m_EscapeAnim.StartEscape();
         }
 
-        animator.Play("Entry");
+        serializedObject.ApplyModifiedProperties();
     }
 }
+#endif
