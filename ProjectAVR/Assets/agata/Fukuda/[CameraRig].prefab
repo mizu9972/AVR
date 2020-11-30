@@ -291,7 +291,6 @@ GameObject:
   - component: {fileID: 6572586666990804758}
   - component: {fileID: 6572586666990804759}
   - component: {fileID: 6572586666990804762}
-  - component: {fileID: 6572586666990804765}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -419,7 +418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572586666990804757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79b2c6eaa9e78fb47b46b607581ba20e, type: 3}
   m_Name: 
@@ -439,19 +438,6 @@ MonoBehaviour:
     type: 3}
   teleportReticlePrefab: {fileID: 1639319533735882, guid: cfb27f702a3af894b918c1816366ee19,
     type: 3}
---- !u!114 &6572586666990804765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572586666990804757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd492d15b7bd26d4ca0da781ca1d8b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
 --- !u!1 &6572586667101379796
 GameObject:
   m_ObjectHideFlags: 0
