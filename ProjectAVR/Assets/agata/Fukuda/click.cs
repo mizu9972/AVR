@@ -34,10 +34,7 @@ public class click : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "UI")
-        {
-            GetComponent<Renderer>().material.color = Color.red;
-        }
+        GetComponent<Renderer>().material.color = Color.red;
         Debug.Log("接触中");
     }
 }
