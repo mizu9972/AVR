@@ -25,7 +25,7 @@ public class click : MonoBehaviour
     {
 
         GetComponent<Renderer>().material.color = Color.green;
-        if (collision.gameObject.name == "Button")
+        if (collision.gameObject.tag == "UI")
         {
                
             Debug.Log("接触中");
