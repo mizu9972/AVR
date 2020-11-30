@@ -6,15 +6,17 @@ using UnityEngine;
 public class CameraPostEffect : MonoBehaviour
 {
 
+
     [SerializeField, Header("ノイズマテリアル")]
-    private Material material = null;
+    private Material noiseMaterial = null;
 
     [SerializeField, Header("レンダーテクスチャ生成スクリプト")]
     CreateNoiseRenTex m_noiseRenderTexture = null;
-    
-    //[SerializeField, Header("ノイズ以外描画レンダーテクスチャ")]
+
+    [SerializeField, Header("ノイズ以外描画レンダーテクスチャ")]
     private RenderTexture baseRenderTex = null;
 
+    private bool _bool = false;
     private void Start()
     {
         baseRenderTex = m_noiseRenderTexture.renderTexture;
@@ -22,10 +24,25 @@ public class CameraPostEffect : MonoBehaviour
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
+        noiseMaterial.SetTexture("_AddRenderTex", baseRenderTex);
 
-        material.SetTexture("_AddRenderTex", baseRenderTex);
+        Graphics.Blit(source, destination, noiseMaterial);
+        //if (_bool)
+        //{
 
-        Graphics.Blit(source, destination, material);
-        
+
+        //    this.GetComponent<Camera>().cullingMask = 1 << 11;
+        //    Graphics.Blit(source, destination);
+        //    //noiseMaterial.SetTexture("_AddRenderTex", baseRenderTex);
+
+
+        //}
+        //else
+        //{
+
+        //    this.GetComponent<Camera>().cullingMask = ~(1 << 11);
+        //    Graphics.Blit(source, destination, noiseMaterial);
+        //}
+        //_bool = !_bool;
     }
 }

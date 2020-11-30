@@ -17,6 +17,10 @@ Shader "Unlit/NoiseDirt"
     SubShader
     {
         Tags { "RenderType"="Opaque" }
+
+		GrabPass{
+			"_GrabTex"
+		}
         LOD 100
 
         Pass
@@ -40,6 +44,7 @@ Shader "Unlit/NoiseDirt"
                 float2 uv : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
+				float4 grabPos:TEXCOORD1;
             };
 
             sampler2D _MainTex;
@@ -53,6 +58,7 @@ Shader "Unlit/NoiseDirt"
 			sampler2D _AddRenderTex;
 			float4 _AddRenderTex_ST;
 
+			sampler2D _GrabTex;
 
 			float _NoiseValue;
 			float2 _Offset;
@@ -75,6 +81,7 @@ Shader "Unlit/NoiseDirt"
                 //o.vertex = UnityObjectToClipPos(v.vertex);
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.grabPos = ComputeGrabScreenPos(o.vertex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
@@ -84,7 +91,7 @@ Shader "Unlit/NoiseDirt"
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
 			
-            
+			half4 grabCol = tex2Dproj(_GrabTex, i.grabPos);
 			float4 outcol;
 			float4 baseCol;
 			float4 noNoiseCol;
