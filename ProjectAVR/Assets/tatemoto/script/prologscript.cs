@@ -35,6 +35,7 @@ public class prologscript : MonoBehaviour
         if (FlagManager.Instance.flags[4] == true)
         {
             moveing.SetActive(true);
+            FlagManager.Instance.flags[3] = false;
         }
         if (FlagManager.Instance.flags[5] == true)
         {

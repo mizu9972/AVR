@@ -10,6 +10,8 @@ TagManager:
   - gomibako
   - yogore
   - door
+  - spider
+  - minispider
   layers:
   - Default
   - TransparentFX
