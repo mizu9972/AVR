@@ -3,6 +3,8 @@
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
+
+		_Color("Color"       , Color) = (1, 1, 1, 1)
 		_AddNoiseTex("加算テクスチャ",2D) = "black" {}
 		_NoiseValue("ノイズの強さ",Range(0,1)) = 0
 			_BaseColorStrength("ノイズでの加算色の強度",Float) = 0.85
@@ -14,13 +16,17 @@
 	}
 		SubShader
 		{
-			Tags { "RenderType" = "Opaque" }
-
-			LOD 100
+			Tags {
+				"Queue" = "Transparent"
+				"RenderType" = "Transparent"
+			}
+			Blend SrcAlpha OneMinusSrcAlpha
+			LOD 200
 
 			Pass
 			{
 				CGPROGRAM
+				#pragma target 3.0
 				#pragma vertex vert
 				#pragma fragment frag
 				// make fog work
@@ -60,6 +66,8 @@
 				float _SinNoise_Scale = 1;
 				float _SinNoise_Offset = 1;
 
+				fixed4 _Color;
+
 				float randf(float2 col) {
 					return frac(sin(dot(col.xy, float2(12.9898, 78.233))) * 43758.5453);
 				}
@@ -81,6 +89,7 @@
 				{
 					// sample the texture
 					fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 c = tex2D(_MainTex, i.uv) * _Color;
 
 				float4 outcol;
 				float4 baseCol;
@@ -95,6 +104,7 @@
 				uv.x += (randf(floor(uv.y * 500) + _Time.y) - 0.5) * _NoiseValue;
 				uv = modf(uv, 1);
 
+				
 				fixed4 noiseCol = tex2D(_AddNoiseTex, randf(uv));
 
 				//RGBをずらす
@@ -121,9 +131,10 @@
 				outcol += noiseCol * _BaseColorStrength;
 				// apply fog
 					UNITY_APPLY_FOG(i.fogCoord, outcol);
-					return float4(/*noNoiseCol + */baseCol + outcol.rgb, 1);
+					return float4(/*noNoiseCol + */baseCol + outcol.rgb, c.a);
 				}
 				ENDCG
 			}
 		}
+		FallBack "Transparent/Diffuse"
 }
