@@ -10,7 +10,7 @@ public class prologcamera : MonoBehaviour
     Transform targetObj;
     GameObject houki;
 
-    Rect rect = new Rect(0.3f, 0.3f, 0.7f, 0.7f);
+    Rect rect = new Rect(0.4f, 0.4f, 0.6f, 0.6f);
 
 
     void Start()
@@ -24,7 +24,7 @@ public class prologcamera : MonoBehaviour
 
         if (rect.Contains(viewportPos))
         {
-            FlagManager.Instance.flags[0] = true;
+            //FlagManager.Instance.flags[0] = true;
         }
         else
         {
