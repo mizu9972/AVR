@@ -47,6 +47,10 @@ public class ControllerGrabObject : MonoBehaviour
             SetCollidingObject(other);
         }
         print("ごみごみ " + handType);
+        if (other.gameObject.tag == "door")
+        {
+            FlagManager.Instance.flags[7] = true;
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -84,6 +88,7 @@ public class ControllerGrabObject : MonoBehaviour
             if (collidingObject)
             {
                 GrabObject();
+                FlagManager.Instance.flags[5] = true;
             }
         }
 
@@ -92,6 +97,7 @@ public class ControllerGrabObject : MonoBehaviour
             if (objectInHand)
             {
                 ReleaseObject();
+                FlagManager.Instance.flags[5] = false;
             }
         }
     }
