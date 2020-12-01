@@ -24,7 +24,7 @@ public class prologcamera : MonoBehaviour
 
         if (rect.Contains(viewportPos))
         {
-            FlagManager.Instance.flags[0] = true;
+            //FlagManager.Instance.flags[0] = true;
         }
         else
         {
