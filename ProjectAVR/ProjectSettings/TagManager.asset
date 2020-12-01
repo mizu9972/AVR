@@ -9,6 +9,7 @@ TagManager:
   - gomi
   - gomibako
   - yogore
+  - door
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - filed
-  - 
+  - Outline
   - 
   - 
   - 
