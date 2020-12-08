@@ -85,6 +85,7 @@ public class ControllerGrabObject : MonoBehaviour
     {
         if (grabAction.GetLastStateDown(handType))
         {
+            FlagManager.Instance.flags[20] = true;
             if (collidingObject)
             {
                 GrabObject();
@@ -94,6 +95,7 @@ public class ControllerGrabObject : MonoBehaviour
 
         if (grabAction.GetLastStateUp(handType))
         {
+            FlagManager.Instance.flags[20] = false;
             if (objectInHand)
             {
                 ReleaseObject();
