@@ -5,6 +5,8 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_TransitionTex("トランジション画像",2D) = "white"{}
 		_isActive("有効か",Float) = 0
+		_CoverColor("上書き色",Color) = (0,0,0,1)
+
 	}
 		SubShader
 		{
@@ -41,6 +43,8 @@
 				sampler2D _TransitionTex;
 				float4 _TransitionTex_ST;
 
+				float4 _CoverColor;
+
 				uniform float _TimeCount;//経過時間
 				uniform float _isActive;//有効かどうか
 
@@ -62,7 +66,7 @@
 					fixed4 addcol = tex2D(_TransitionTex, i.uv);
 					addcol = 1.0 - addcol;
 					addcol = step(_TimeCount * 0.01, addcol * _isActive);//トランジション画像の色判定
-					col = col * addcol;//画像上書き
+					col = col * addcol + _CoverColor * (1 - addcol);//画像上書き
 					// apply fog
 					UNITY_APPLY_FOG(i.fogCoord, col);
 					return col;
