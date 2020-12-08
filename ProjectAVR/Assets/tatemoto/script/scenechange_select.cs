@@ -14,12 +14,12 @@ public class scenechange_select : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        a = SceneManager.LoadSceneAsync("Stage1");
-        a.allowSceneActivation = false;
-        b = SceneManager.LoadSceneAsync("Stage2");
-        b.allowSceneActivation = false;
-        c = SceneManager.LoadSceneAsync("Stage3");
-        c.allowSceneActivation = false;
+        //a = SceneManager.LoadSceneAsync("Stage1");
+        //a.allowSceneActivation = false;
+        //b = SceneManager.LoadSceneAsync("stage2");
+        //b.allowSceneActivation = false;
+        //c = SceneManager.LoadSceneAsync("Stage3");
+        //c.allowSceneActivation = false;
     }
 
     // Update is called once per frame
@@ -27,21 +27,24 @@ public class scenechange_select : MonoBehaviour
     {
         if (FlagManager.Instance.flags[selectNo1])
         {
-            a.allowSceneActivation = true;
-            b=SceneManager.UnloadSceneAsync("Stage2");
-            c=SceneManager.UnloadSceneAsync("Stage3");
+            a = SceneManager.LoadSceneAsync("Stage1");
+            //a.allowSceneActivation = true;
+            //b=SceneManager.UnloadSceneAsync("stage2");
+            //c=SceneManager.UnloadSceneAsync("Stage3");
         }
         if (FlagManager.Instance.flags[selectNo2])
         {
-            b.allowSceneActivation = true;
-            a=SceneManager.UnloadSceneAsync("Stage1");
-            c=SceneManager.UnloadSceneAsync("Stage3");
+            a = SceneManager.LoadSceneAsync("stage2");
+            //b.allowSceneActivation = true;
+            //a=SceneManager.UnloadSceneAsync("Stage1");
+            //c=SceneManager.UnloadSceneAsync("Stage3");
         }
         if (FlagManager.Instance.flags[selectNo3])
         {
-            c.allowSceneActivation = true;
-            a=SceneManager.UnloadSceneAsync("Stage1");
-            b=SceneManager.UnloadSceneAsync("Stage2");
+            a = SceneManager.LoadSceneAsync("Stage3");
+            //c.allowSceneActivation = true;
+            //a=SceneManager.UnloadSceneAsync("Stage1");
+            //b=SceneManager.UnloadSceneAsync("stage2");
         }
     }
 }
