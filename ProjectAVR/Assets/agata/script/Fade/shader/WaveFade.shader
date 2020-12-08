@@ -1,17 +1,17 @@
-﻿Shader "Unlit/FadebyTex"
+﻿Shader "Unlit/WaveFade"
 {
     Properties
-	{
-		_MainTex("Texture", 2D) = "white" {}
-		_TransitionTex("トランジション画像",2D) = "white"{}
-		_isActive("有効か",Float) = 0
-		_CoverColor("上書き色",Color) = (0,0,0,1)
-	}
+    {
+        _MainTex ("Texture", 2D) = "white" {}
+		_TransitionTex("参考画像",2D) = "white"{}
+
+    }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "Queue" = "Trasparent+1" }
         LOD 100
 
+		Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             CGPROGRAM
@@ -38,14 +38,14 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
-			//トランシジョンルール画像
+			//参考画像
 			sampler2D _TransitionTex;
 			float4 _TransitionTex_ST;
 
-			float4 _CoverColor;
-
+			uniform float _PreUV_X;//予めずらしておく座標
+			uniform float _PreUV_Y;
 			uniform float _TimeCount;//経過時間
-			uniform float _isActive;//有効かどうか
+			uniform float _isActive;//有効化どうか
 
             v2f vert (appdata v)
             {
@@ -55,18 +55,21 @@
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
-			
-			//トランシジョン画像の黒いピクセルから判定して画面の黒塗りを解除していく
+
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-				//描画ピクセルの画像情報取り出し
                 fixed4 col = tex2D(_MainTex, i.uv);
-				fixed4 addcol = tex2D(_TransitionTex, i.uv);
 
-				addcol = step(addcol,_TimeCount * 0.01 * _isActive);//トランジション画像の色判定
-				col = col * addcol + _CoverColor * (1 - addcol);//画像上書き
-                // apply fog
+			float2 texUv = float2(0, 0);
+			texUv.x = i.uv.x;
+			texUv.y = smoothstep(0.0,1.0,i.uv.y - _TimeCount * 0.01 * _isActive + _PreUV_Y);
+			
+				fixed4 TexCol = tex2D(_TransitionTex, texUv);
+                
+				col = col * TexCol;
+
+				// apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System;
 
 using UniRx;
@@ -20,6 +21,9 @@ public class FadebyTex : MonoBehaviour
 
     [SerializeField, Header("トランジションルール画像")]
     private Texture TransitionTex = null;
+
+    [SerializeField, Header("フェード色")]
+    private Color CoverColor = Color.black;
 
     [SerializeField, Header("フェードイン速度")]
     private float FadeInSpeed = 1.0f;
@@ -59,8 +63,10 @@ public class FadebyTex : MonoBehaviour
 
         //シェーダー初期化
         FadeInMat.SetTexture("_TransitionTex", TransitionTex);
+        FadeInMat.SetColor("_CoverColor", CoverColor);
 
         FadeOutMat.SetTexture("_TransitionTex", TransitionTex);
+        FadeOutMat.SetColor("_CoverColor", CoverColor);
 
         //フェード終了通知
         m_FunctionTimeCount.Select(x => x * 0.01f >= 1.0).DistinctUntilChanged().Where(x => x).Subscribe(x =>
@@ -148,3 +154,30 @@ public class FadebyTex : MonoBehaviour
         return isFade;
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(FadebyTex))]
+class FadebyTexEditor : Editor
+{
+    private FadebyTex m_FBT;
+    public override void OnInspectorGUI()
+    {
+        m_FBT = target as FadebyTex;
+        base.OnInspectorGUI();
+
+        serializedObject.Update();
+
+
+        if (GUILayout.Button("フェードイン"))
+        {
+            m_FBT.StartFadeIn();
+        }
+
+        if (GUILayout.Button("フェードアウト"))
+        {
+            m_FBT.StartFadeOut();
+        }
+
+    }
+}
+#endif
