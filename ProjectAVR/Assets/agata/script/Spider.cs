@@ -35,7 +35,7 @@ public class Spider : MonoBehaviour
             //Quaternion targetRotation = Quaternion.LookRotation(initPos - this.transform.position);
             //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime );
 
-            transform.RotateAround(centerPos, new Vector3(0, 1.0f, .0f), speed * Time.deltaTime);
+            transform.RotateAround(centerPos, new Vector3(0, -1.0f, .0f), speed * Time.deltaTime);
         }
         //moveTimeが0以下なら次のポイントを設定する
         if (moveTime < 0)
