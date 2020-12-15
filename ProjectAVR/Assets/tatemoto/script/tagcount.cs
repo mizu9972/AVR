@@ -35,7 +35,7 @@ public class tagcount : MonoBehaviour
         if (tagObjects.Length == 0)
         {
             Debug.Log(tagname + "タグがついたオブジェクトはありません");
-            //FlagManager.Instance.flags[flagNo] = true;
+            FlagManager.Instance.flags[flagNo] = true;
         }
     }
 }

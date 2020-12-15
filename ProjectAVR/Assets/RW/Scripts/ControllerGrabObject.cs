@@ -51,6 +51,18 @@ public class ControllerGrabObject : MonoBehaviour
         {
             FlagManager.Instance.flags[7] = true;
         }
+        if (other.gameObject.tag == "door1")
+        {
+            FlagManager.Instance.flags[1] = true;
+        }
+        if (other.gameObject.tag == "door2")
+        {
+            FlagManager.Instance.flags[2] = true;
+        }
+        if (other.gameObject.tag == "door3")
+        {
+            FlagManager.Instance.flags[3] = true;
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -85,6 +97,7 @@ public class ControllerGrabObject : MonoBehaviour
     {
         if (grabAction.GetLastStateDown(handType))
         {
+            FlagManager.Instance.flags[20] = true;
             if (collidingObject)
             {
                 GrabObject();
@@ -94,6 +107,7 @@ public class ControllerGrabObject : MonoBehaviour
 
         if (grabAction.GetLastStateUp(handType))
         {
+            FlagManager.Instance.flags[20] = false;
             if (objectInHand)
             {
                 ReleaseObject();

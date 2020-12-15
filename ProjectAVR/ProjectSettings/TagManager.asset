@@ -12,6 +12,9 @@ TagManager:
   - door
   - spider
   - minispider
+  - door1
+  - door2
+  - door3
   layers:
   - Default
   - TransparentFX
