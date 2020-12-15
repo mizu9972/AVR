@@ -15,6 +15,9 @@ public class WaveFade : MonoBehaviour
     [SerializeField, Header("フェード速度")]
     private float FadeSpeed = 1.0f;
 
+    [SerializeField, Header("横方向移動速度")]
+    private float HorizonMoveSpeed = 1.0f;
+
     [SerializeField, Header("開始UV座標")]
     private Vector2 StartUV = Vector2.zero;
 
@@ -65,6 +68,7 @@ public class WaveFade : MonoBehaviour
         WaveFadeMat.SetFloat("_isActive", 1);
         WaveFadeMat.SetFloat("_PreUV_X", StartUV.x);
         WaveFadeMat.SetFloat("_PreUV_Y", StartUV.y);
+        WaveFadeMat.SetFloat("_HorizonMoveSpeed", HorizonMoveSpeed);
 
         m_FunctionTimeCount.Value = 0;
 
