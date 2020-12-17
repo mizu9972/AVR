@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.projectavr.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\oisii\\Desktop\\AVR\\ProjectAVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\VR\\team\\ProjectAVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "ProjectAVR [Testing]"
