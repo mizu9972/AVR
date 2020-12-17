@@ -1,39 +1,9 @@
 fileFormatVersion: 2
-guid: 3ac9a73ef4943c24d99a0b4feacaabac
+guid: 329338b39abd1f042b7f27405f8bf595
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 0c3cc50b2f9a3e54495635a823a80c65, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE1
-    second: {fileID: 2100000, guid: 35d9deb9debfa494691613f7419cc993, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE2
-    second: {fileID: 2100000, guid: e1ea1cd9fd614764c9a6e2c51b0cf4f9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE3
-    second: {fileID: 2100000, guid: 1728fa5cda3bb684e8727a6a2e6b8715, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE4
-    second: {fileID: 2100000, guid: 8d94866a386158742b6569e30569d228, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE5
-    second: {fileID: 2100000, guid: a47fa32aa0f9810499933eed955bf766, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
