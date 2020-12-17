@@ -20,8 +20,9 @@ public class move_Player : MonoBehaviour
 
     void OnEnable()
     {
+        FlagManager.Instance.flags[15] = true;
         if (time <= 0)
-        {
+        { 
             transform.position = endPosition;
             enabled = false;
             return;

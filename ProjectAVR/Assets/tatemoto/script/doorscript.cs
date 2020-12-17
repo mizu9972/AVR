@@ -27,7 +27,7 @@ public class doorscript : MonoBehaviour
 
         if (FlagManager.Instance.flags[selectNo] && FlagManager.Instance.flags[20])
         {
-            FlagManager.Instance.flags[15] = false;
+ 
             this.animator.SetBool(open, true);
             FlagManager.Instance.flags[selectNo1] = true;
             camera.GetComponent<trackingoff>().enabled=true;

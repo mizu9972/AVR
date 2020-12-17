@@ -18,6 +18,7 @@ public class fadeout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (FlagManager.Instance.flags[selectNo1]==false)
         {
             SteamVR_Fade.Start(before_color, 0f);
