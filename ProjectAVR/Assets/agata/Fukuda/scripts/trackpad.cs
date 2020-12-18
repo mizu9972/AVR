@@ -48,7 +48,7 @@ public class trackpad : MonoBehaviour
             //transform.position += maware * speed * Time.deltaTime;
             //transform.rotation = Quaternion.LookRotation(moveForward);
             transform.position += moveForward *  speed * Time.deltaTime;
-            Debug.Log(maware);
+            //Debug.Log(maware);
             //Debug.Log(kakudo);
         }
         //💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
