@@ -6,7 +6,7 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 100
 
         Pass
@@ -53,7 +53,8 @@
 			col = fixed4(grey, grey, grey, col.a);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+				return col;
+				//return float4(1,1,1,1);
             }
             ENDCG
         }
