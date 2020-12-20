@@ -63,7 +63,7 @@ MonoBehaviour:
   PianistRenderer: {fileID: 9085449446960643385}
   PianistAnim: {fileID: 4407363504284164953}
   PlayerTrans: {fileID: 0}
-  MovePointRadius: 0.5
+  MovePointRadius: 1
 --- !u!95 &7277498129993571533
 Animator:
   serializedVersion: 3

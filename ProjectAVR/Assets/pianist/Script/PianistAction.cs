@@ -52,6 +52,7 @@ public class PianistAction : MonoBehaviour
             //視界に入っていない
             if(isAttackableMode == true)
             {
+                //プレイヤーのそばに移動
                 MoveAroundPlayer();
 
                 AttackFlag = true;
@@ -63,18 +64,28 @@ public class PianistAction : MonoBehaviour
     //プレイヤーのそばへ瞬間移動
     private void MoveAroundPlayer()
     {
-        //座標計算
+        //座標差計算
         Vector3 subPos = Vector3.zero;
-        subPos.x = judgeSign(PlayerTrans.position.x - PianistPos.x);
+        subPos.x = PlayerTrans.position.x - PianistPos.x;
         subPos.y = 0;
-        subPos.z = judgeSign(PlayerTrans.position.z - PianistPos.z);
+        subPos.z = PlayerTrans.position.z - PianistPos.z;
+
+        //符号判定
+        Vector3 signPos;
+        signPos.x = judgeSign(subPos.x);
+        signPos.y = 0;
+        signPos.z = judgeSign(subPos.z);
 
         //座標決定
-        Vector3 movePos = new Vector3(PlayerTrans.position.x - subPos.x * MovePointRadius, PianistPos.y, PlayerTrans.position.z - subPos.z * MovePointRadius);
+        Vector3 movePos = new Vector3(PlayerTrans.position.x - signPos.x * MovePointRadius, PianistPos.y, PlayerTrans.position.z - signPos.z * MovePointRadius);
 
-        //プレイヤーと重ならないようにする
+        //プレイヤーの方向を向く
+        Quaternion LookRotation = Quaternion.LookRotation(subPos, Vector3.up);
+
+        //反映する
         Pianist_Man.transform.position = movePos;
-        
+        Pianist_Man.transform.rotation = LookRotation;
+
     }
 
     public void setAttackMode(bool set)
@@ -94,5 +105,13 @@ public class PianistAction : MonoBehaviour
             retNum -= 1;
         }
         return retNum;
+    }
+
+    ///デバッグ用
+    [ContextMenu("攻撃")]
+    private void Debug_Attack()
+    {
+        MoveAroundPlayer();
+        PianistAnim.AttackwithChair();
     }
 }
