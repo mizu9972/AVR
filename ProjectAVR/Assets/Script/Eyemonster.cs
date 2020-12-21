@@ -47,8 +47,8 @@ public class Eyemonster : MonoBehaviour
 
     void RandumNum()
     {
-        i = Random.Range(0, 10);
-        if (i == 10)
+        i = Random.Range(1, 10);
+        if (i == 1)
         {
             flg = true;
         }

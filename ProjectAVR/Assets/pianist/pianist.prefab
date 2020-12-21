@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8149912353614103752}
+  - component: {fileID: 4407363504284164953}
+  - component: {fileID: 7319647333968290887}
   m_Layer: 0
   m_Name: pianist
   m_TagString: Untagged
@@ -28,10 +30,79 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8834270629144210282}
+  - {fileID: 6038592644238756769}
   - {fileID: 8207118231924946194}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4407363504284164953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409764698635027850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403a604ff43d53f4085716c7c24609a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PianistAnim: {fileID: 7277498129993571533}
+--- !u!114 &7319647333968290887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409764698635027850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5362cc8236fabdd48aaa546c1c7fcbb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pianist_Man: {fileID: 8840102215838658472}
+  PianistRenderer: {fileID: 9085449446960643385}
+  PianistAnim: {fileID: 4407363504284164953}
+  PlayerTrans: {fileID: 0}
+  MovePointRadius: 1
+--- !u!95 &1816733330006405057
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378984558105399579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d3b738adee62e84aba7294cae34fe0e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &7277498129993571533
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840102215838658472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d3b738adee62e84aba7294cae34fe0e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4603548096030769264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,6 +193,87 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4603548096030769264}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6073066135930940490
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8149912353614103752}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+        type: 3}
+      propertyPath: m_Name
+      value: pianist_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13c2cdfea770c184d95a5b7909df3b4c, type: 3}
+--- !u!1 &6378984558105399579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6073066135930940490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6038592644238756769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13c2cdfea770c184d95a5b7909df3b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6073066135930940490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8534096929158189817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,7 +319,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f3dd21cc3a52b2245a982b5ea60720b7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f3dd21cc3a52b2245a982b5ea60720b7,
         type: 3}
@@ -189,11 +341,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: pianist_play
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f3dd21cc3a52b2245a982b5ea60720b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3dd21cc3a52b2245a982b5ea60720b7, type: 3}
+--- !u!1 &8840102215838658472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3dd21cc3a52b2245a982b5ea60720b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8534096929158189817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8207118231924946194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f3dd21cc3a52b2245a982b5ea60720b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8534096929158189817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &9085449446960643385 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8612795828422938688, guid: f3dd21cc3a52b2245a982b5ea60720b7,
     type: 3}
   m_PrefabInstance: {fileID: 8534096929158189817}
   m_PrefabAsset: {fileID: 0}
