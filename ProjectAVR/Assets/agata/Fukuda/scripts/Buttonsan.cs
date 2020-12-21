@@ -20,6 +20,7 @@ public class Buttonsan : MonoBehaviour
     [SerializeField] private GameObject titlelogo;
 
     [SerializeField] private GameObject lightdi;
+    private float chikachikatime = 1.0f;
 
     // public Button button;
 
@@ -49,7 +50,7 @@ public class Buttonsan : MonoBehaviour
         //flg = false;
         //button.Select();
         //mySelectable = GetComponent<Selectable>();
-
+        chikachikatime = 1.0f;
 
         chika = false;
     }
@@ -154,7 +155,7 @@ public class Buttonsan : MonoBehaviour
         {
             timekun += Time.deltaTime;
 
-            if (timekun >= 0.5f)
+            if (timekun >= chikachikatime)
             {
 
                 if (flg)
@@ -175,10 +176,16 @@ public class Buttonsan : MonoBehaviour
                 }
                 timel += 1.0f;
                 timekun = 0.0f;
+                chikachikatime -= 0.1f;
+                if(chikachikatime<0.1f)
+                {
+                    chikachikatime = 0.1f;
+                }
             }
         }
         else if (lightflg)
         {
+            
             timekun += Time.deltaTime;
 
             if (timekun >= 1.0f)
