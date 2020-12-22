@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5a27056ea390bd24594283c91abceabc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Meiryo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d2eb037cb44eda8418c7d41d04e4bd57, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

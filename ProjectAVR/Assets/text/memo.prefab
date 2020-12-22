@@ -51,7 +51,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97f3dffa04b1f6046b8b4a6bc1c6cccc, type: 3}
+  - {fileID: 2100000, guid: 2c32f3c42aba6874c9a647ae3c6a2e89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,7 +91,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 97f3dffa04b1f6046b8b4a6bc1c6cccc, type: 3}
+  m_Font: {fileID: 12800000, guid: a759d033c1308cd4694b64afeac76716, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 3448872655586158524}
   - component: {fileID: 3448872655586158497}
   - component: {fileID: 3448872655586158526}
-  - component: {fileID: 3448872655586158527}
   m_Layer: 0
   m_Name: Text1
   m_TagString: Untagged
@@ -148,7 +147,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2fcef0669f0d9664a9f23bdb2c24e351, type: 3}
+  - {fileID: 2100000, guid: 33f482c70faeeab45997e1c1e601fd4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -188,25 +187,10 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 2fcef0669f0d9664a9f23bdb2c24e351, type: 3}
+  m_Font: {fileID: 12800000, guid: 97f3dffa04b1f6046b8b4a6bc1c6cccc, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &3448872655586158527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3448872655586158525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a321f4271d2950b43b0b67d4879f1703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshText1: {fileID: 3448872655586158526}
-  meshText2: {fileID: 3448872654672017834}
-  textAsset: {fileID: 4900000, guid: 8114745240fd791498913808cf0e40ed, type: 3}
 --- !u!1 &3448872656207770232
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +203,7 @@ GameObject:
   - component: {fileID: 3448872656207770237}
   - component: {fileID: 3448872656207770234}
   - component: {fileID: 3448872656207770235}
+  - component: {fileID: 7113827946524942799}
   m_Layer: 0
   m_Name: memo
   m_TagString: Untagged
@@ -304,3 +289,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7113827946524942799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448872656207770232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a321f4271d2950b43b0b67d4879f1703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshText1: {fileID: 3448872655586158526}
+  meshText2: {fileID: 3448872654672017834}
+  textAsset: {fileID: 4900000, guid: 8114745240fd791498913808cf0e40ed, type: 3}

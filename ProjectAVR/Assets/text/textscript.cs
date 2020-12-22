@@ -24,8 +24,16 @@ public class textscript : MonoBehaviour
     //区切り文字までの文字数取得用
     int num;
 
+    [SerializeField]
+    bool catflag = false;
+    private Vector3 pos;
+    private Transform camera;
+    GameObject m;
+
     void Start()
     {
+        m = GameObject.Find("Camera"); //オブジェクトの名前から取得して変数に格納する
+        pos = this.transform.position;
 
         loadText1 = textAsset.text;
         splitText1 = loadText1.Split(char.Parse("-"));
@@ -54,7 +62,7 @@ public class textscript : MonoBehaviour
         }
     }
 
-    private void sou(TextMesh oetext,TextMesh twtext)
+    private void sou(TextMesh oetext, TextMesh twtext)
     {
         //テキスト1に文字列挿入
         oetext.text += splitText1[textNum1];
@@ -98,13 +106,51 @@ public class textscript : MonoBehaviour
         }
 
     }
-    //void Update()
-    //{
-    //    //1ループ分だけ処理するよう
-    //    if (textNum1 == 0)
-    //    {
 
-    //    }
-    //}
+    public void chkon()
+    {
+        catflag = true;
+        m = GameObject.Find("Camera"); //オブジェクトの名前から取得して変数に格納する
+
+    }
+    public void chkoff()
+    {
+        catflag = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            chkon();
+        }
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            chkoff();
+        }
+
+        if (catflag)
+        {
+            Vector3 forward = m.transform.TransformDirection(Vector3.forward);
+            this.transform.position = m.transform.position;
+            this.transform.position += m.transform.forward * 20;
+
+            //Vector3 quat = m.transform.localEulerAngles;
+            Vector3 quat = m.transform.eulerAngles;
+
+            float x = -90 + quat.x;
+            float y = quat.y;
+            float z = quat.z;
+            Debug.Log(quat.x);
+            forward.x = x;
+            forward.y = y;
+            forward.z = 0;
+            this.transform.localEulerAngles = forward;
+        }
+        else
+        {
+            this.transform.position = pos;
+        }
+    }
 
 }
