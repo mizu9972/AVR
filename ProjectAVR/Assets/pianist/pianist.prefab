@@ -75,8 +75,8 @@ MonoBehaviour:
   Pianist_Man: {fileID: 6378984558105399579}
   PianistAnim: {fileID: 4407363504284164953}
   PlayerTrans: {fileID: 0}
-  MovePointRadius: 1
-  Viewer: {fileID: 8843284176922415638}
+  MovePointRadius: 1.5
+  Viewer: {fileID: 4669617895229922296}
 --- !u!114 &8843284176922415638
 MonoBehaviour:
   m_ObjectHideFlags: 0

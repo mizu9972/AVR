@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class judgeView : MonoBehaviour
 {
+
+    //判定するカメラのタグ名
+    private const string CAMERATAG_NAME = "MainCamera";
+
     public bool isInsideCamera
     {
         get;
@@ -15,14 +19,29 @@ public class judgeView : MonoBehaviour
         isInsideCamera = false;
     }
 
-    //カメラに写っているか
-    private void OnBecameInvisible()
+    private void Update()
     {
         isInsideCamera = false;
     }
 
-    private void OnBecameVisible()
+    ////カメラに写っているか
+    //private void OnBecameInvisible()
+    //{
+    //    isInsideCamera = false;
+    //}
+
+    //private void OnBecameVisible()
+    //{
+    //    isInsideCamera = true;
+    //}
+
+    private void OnWillRenderObject()
     {
-        isInsideCamera = true;
+        if(Camera.current.tag == CAMERATAG_NAME)
+        {
+            isInsideCamera = true;
+
+            Debug.Log("写った");
+        }
     }
 }
