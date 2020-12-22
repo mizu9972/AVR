@@ -43,6 +43,8 @@ public class Buttonsan : MonoBehaviour
     private bool lightflg = false;
     private float timekun=0.0f;
 
+    private bool starttutorial = false;
+
     [SerializeField] private GameObject kumo;
     [SerializeField] private GameObject eye;
     void Start()
@@ -51,7 +53,7 @@ public class Buttonsan : MonoBehaviour
         //button.Select();
         //mySelectable = GetComponent<Selectable>();
         chikachikatime = 1.0f;
-
+        SceneNameNow = SceneName;
         chika = false;
     }
 
@@ -128,8 +130,8 @@ public class Buttonsan : MonoBehaviour
             EndGame();
         }
         titlelogo.SetActive(false);
-        startbutton.SetActive(false);
-        exitbutton.SetActive(false);
+        Destroy(startbutton);
+        Destroy(exitbutton);
         chika = true;
         //SceneManager.LoadScene(SceneNameNow);
 
@@ -150,7 +152,7 @@ public class Buttonsan : MonoBehaviour
  
     private void Kieru()
     {
-
+     
         if (!lightflg)
         {
             timekun += Time.deltaTime;
@@ -206,6 +208,13 @@ public class Buttonsan : MonoBehaviour
                 timel += 1.0f;
 
                 timekun = 0.0f;
+
+                
+
+                if(timel>5.0f)
+                {
+                    SceneManager.LoadScene(SceneNameNow);
+                }
             }
         }
     }
