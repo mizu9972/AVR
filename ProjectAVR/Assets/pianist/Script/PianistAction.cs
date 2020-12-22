@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+using UniRx;
 public class PianistAction : MonoBehaviour
 {
     [SerializeField, Header("ピアニスト(人)オブジェクト")]
     private GameObject Pianist_Man = null;
-    [SerializeField, Header("視界に収めていると判断するレンダラー")]
-    private Renderer PianistRenderer = null;
+    //[SerializeField, Header("視界に収めていると判断するレンダラー")]
+    //private Renderer PianistRenderer = null;
     [SerializeField, Header("ピアニストのアニメーションスクリプト")]
     private PianistAnimation PianistAnim = null;
 
@@ -17,10 +19,14 @@ public class PianistAction : MonoBehaviour
     [SerializeField, Header("プレイヤーの元に移動する際にプレイヤーと開ける間隔")]
     private float MovePointRadius = 0.5f;
 
+    [SerializeField, Header("描画されているか判定スクリプト")]
+    private judgeView Viewer = null;
+
     private Vector3 PianistPos = Vector3.zero;
 
     private bool isAttackableMode = false;
     private bool AttackFlag = false;
+    private bool isInsideCamera = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +36,22 @@ public class PianistAction : MonoBehaviour
         {
             PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        //攻撃可能状態にする
+        //開始直後は攻撃させない場合はfalse
+
+        //３秒後にtrue
+        Observable.Timer(System.TimeSpan.FromSeconds(3))
+            .Subscribe(_ =>
+        isAttackableMode = true);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //攻撃可能状態なら一度視界を外れた後もう一度視界に入れたタイミングで攻撃
-        if (PianistRenderer.isVisible)
+        if (Viewer.isInsideCamera)
         {
             //視界に入っている
             if (AttackFlag == true)
@@ -106,6 +121,8 @@ public class PianistAction : MonoBehaviour
         }
         return retNum;
     }
+
+
 
     ///デバッグ用
     [ContextMenu("攻撃")]
