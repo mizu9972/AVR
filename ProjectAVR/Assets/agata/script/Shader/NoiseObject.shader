@@ -10,6 +10,7 @@
 			_BaseColorStrength("ノイズでの加算色の強度",Float) = 0.85
 		_Offset("描画オフセット",Vector) = (0,0,0,0)
 		_RGBNoise("画面全体のノイズ",Range(0,1)) = 0
+			_StencilMask("StencilMask番号",int) = 2
 			//_SinNoise_Width("NoiseWidth",Float) = 1
 			//_SinNoise_Scale("NoiseScale",Float) = 1
 			//_SinNoise_Offset("NoiseOffset",Float) = 1
@@ -23,8 +24,14 @@
 			Blend SrcAlpha OneMinusSrcAlpha
 			LOD 200
 
+
 			Pass
 			{
+				Stencil{
+					Ref	[_StencilMask]
+					Comp Always
+					Pass Replace
+				}
 				CGPROGRAM
 				#pragma target 3.0
 				#pragma vertex vert
@@ -33,6 +40,7 @@
 				#pragma multi_compile_fog
 
 				#include "UnityCG.cginc"
+
 
 				struct appdata
 				{

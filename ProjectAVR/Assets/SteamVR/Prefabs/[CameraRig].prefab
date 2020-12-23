@@ -439,20 +439,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000014254142504}
   m_Enabled: 1
---- !u!114 &4330590765366518147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3777978561417622656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 954efde36bdda564f90057141b7921d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VRCamera: {fileID: 0}
-  renderTexture: {fileID: 8400000, guid: bd5ff76305793de4ebab98ea186b3941, type: 2}
 --- !u!95 &8519454628570871198
 Animator:
   serializedVersion: 3
@@ -576,17 +562,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_noiseRenderTexture
       value: 
-      objectReference: {fileID: 4330590765366518147}
+      objectReference: {fileID: 0}
     - target: {fileID: 1185661612083355702, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
         type: 3}
       propertyPath: baseRenderTex
       value: 
       objectReference: {fileID: 8400000, guid: bd5ff76305793de4ebab98ea186b3941, type: 2}
-    - target: {fileID: 1185661612083355702, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2722839655518204368, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
         type: 3}
       propertyPath: m_Camera
@@ -659,12 +640,6 @@ Transform:
 --- !u!20 &3777978561371207187 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1185661612083355700, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2601465987959739943}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3777978561417622656 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185661611911635623, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
     type: 3}
   m_PrefabInstance: {fileID: 2601465987959739943}
   m_PrefabAsset: {fileID: 0}

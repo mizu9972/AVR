@@ -2,15 +2,22 @@
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture", 2D) = "black" {}
+		_Color("Color",COLOR) = (0,0,0,1)
+		_StencilMask("汚れオブジェクトのStencilMask番号",int) = 2
     }
     SubShader
     {
         Tags { "RenderType"="Transparent" }
         LOD 100
 
+			//Cull Off Zwrite Off Ztest Always
         Pass
         {
+			Stencil{
+				Ref [_StencilMask]
+				Comp NotEqual
+			}
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -35,6 +42,8 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
+			float4 _Color;
+
             v2f vert (appdata v)
             {
                 v2f o;
@@ -48,6 +57,7 @@
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
+				col += _Color;
 
 			float grey = dot(col.rgb, fixed3(0.299, 0.587, 0.114));
 			col = fixed4(grey, grey, grey, col.a);

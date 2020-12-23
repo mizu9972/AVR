@@ -131,9 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0519933002c5c743bf5fc7790ea551a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMaterial: {fileID: 0}
-  m_noiseRenderTexture: {fileID: 0}
-  baseRenderTex: {fileID: 0}
+  PostEffectMaterial: {fileID: 2100000, guid: dbc18868ddf641c48b4314dd199d30c4, type: 2}
 --- !u!114 &1835644439151064661
 MonoBehaviour:
   m_ObjectHideFlags: 0
