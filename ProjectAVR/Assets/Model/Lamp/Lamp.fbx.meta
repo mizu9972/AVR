@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: fe03f048f8a36f7498ef604cde77fae6
+=======
+guid: c21c0205afdedfc4db4b9b78c9880f1b
+>>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -8,6 +12,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:ProjectAVR/Assets/Model/Room/Materials/Wall_Wood.fbx.meta
+    second: {fileID: 2100000, guid: 9ad05b763c4def347abad196539123b7, type: 2}
+=======
+>>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955
     second: {fileID: 2100000, guid: da9adfc198c0b164c86399a41db75364, type: 2}
   - first:
       type: UnityEngine:Material
@@ -24,6 +34,10 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: phongE3
     second: {fileID: 2100000, guid: 68c02d38935fd5e4da2cd6321f90fa35, type: 2}
+<<<<<<< HEAD
+=======
+>>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955:ProjectAVR/Assets/Model/Lamp/Lamp.fbx.meta
+>>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955
   materials:
     materialImportMode: 1
     materialName: 0
@@ -93,7 +107,11 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
+<<<<<<< HEAD
   importAnimation: 1
+=======
+  importAnimation: 0
+>>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955
   humanDescription:
     serializedVersion: 3
     human: []
@@ -112,7 +130,11 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
+<<<<<<< HEAD
   animationType: 2
+=======
+  animationType: 0
+>>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
