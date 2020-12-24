@@ -7,6 +7,8 @@ public class cameraray1 : MonoBehaviour
     public GameObject camera;
     public GameObject hitobj;
     public float radius;
+    public int itime;
+    private int time;
     
     // Start is called before the first frame update
     void Start()
@@ -23,12 +25,20 @@ public class cameraray1 : MonoBehaviour
         {
             if(hit.collider.gameObject==hitobj)
             {
-                FlagManager.Instance.flags[0] = true;
+                if(itime*30<=time)
+                {
+                    Destroy(hitobj);
+                }
             }
             else
             {
-                FlagManager.Instance.flags[0] = false;
+                
             }
+            time++;
+        }
+        else
+        {
+            time = 0;
         }
     }
 }
