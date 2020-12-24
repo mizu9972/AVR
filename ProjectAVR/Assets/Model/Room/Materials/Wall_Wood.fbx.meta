@@ -8,26 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-<<<<<<< HEAD:ProjectAVR/Assets/Model/Room/Materials/Wall_Wood.fbx.meta
     second: {fileID: 2100000, guid: 9ad05b763c4def347abad196539123b7, type: 2}
-=======
-    second: {fileID: 2100000, guid: da9adfc198c0b164c86399a41db75364, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE1
-    second: {fileID: 2100000, guid: 39a48880e360f8d4c868bf95f079458a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE2
-    second: {fileID: 2100000, guid: d970cfd82c232be4a90d5128c90bb063, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE3
-    second: {fileID: 2100000, guid: 68c02d38935fd5e4da2cd6321f90fa35, type: 2}
->>>>>>> 0f6e945525a285b4aa384763dea0b113b27b7955:ProjectAVR/Assets/Model/Lamp/Lamp.fbx.meta
   materials:
     materialImportMode: 1
     materialName: 0
