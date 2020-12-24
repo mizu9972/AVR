@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using UniRx.Triggers;
-
+using UnityEngine.SceneManagement;
 public class EndrollSystem : MonoBehaviour
 {
     [SerializeField,Header("スクロールスピード")]
@@ -21,13 +21,24 @@ public class EndrollSystem : MonoBehaviour
 
     [SerializeField, Header("スキップフラグ")]
     private bool isSkip = false;
-    
-
 
     private RectTransform MyRectTrans = null;
     
     private Coroutine endRollCoroutine;//　シーン移動用コルーチン
 
+    private float UseFadeValue = 1f;
+
+    [SerializeField, Header("エンドの文字")]
+    private Text EndText = null;
+
+    public EndrollBGM endrollBGM = null;
+
+    [SerializeField]
+    private float FadeSpeed = 0.01f;
+
+    private bool isFadeEnd = false;
+
+    private bool isFadeStart = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +47,15 @@ public class EndrollSystem : MonoBehaviour
         this.UpdateAsObservable().
              Where(_ => isFinished).Take(1).
              Subscribe(_ => endRollCoroutine = StartCoroutine(ScrollEnd()));
+
+        this.UpdateAsObservable().
+            Where(_ => isFadeEnd).Take(1).
+            Subscribe(_ => OnSkip());
+
+        this.UpdateAsObservable().
+            Where(_ => isSkip).Take(1).
+            Subscribe(_ => SceneManager.LoadScene("Title"));
+
     }
 
     // Update is called once per frame
@@ -57,13 +77,19 @@ public class EndrollSystem : MonoBehaviour
             }
         }
 
-        //TODO デバッグ用終わったら消す
+        //TODO ＶＲ用の入力検知に変更
         else
         {
-            if (Input.GetKeyDown(KeyCode.Return)/*isSkip*/)
+            if (!isFadeStart&&Input.GetKeyDown(KeyCode.Return))
             {
-                Debug.Log("終わり");
-                OnSkip();
+                //オーディオと文字のフェード開始
+                isFadeStart = true;
+            }
+
+            if(isFadeStart&&!isFadeEnd)
+            {
+                //フェード中
+                FadeWordandAudio();
             }
         }
     }
@@ -71,16 +97,27 @@ public class EndrollSystem : MonoBehaviour
     IEnumerator ScrollEnd()
     {
         yield return new WaitForSeconds(WaitTime);//指定の秒数後にシーン遷移
-        if (isSkip)
-        {
-            yield break;
-        }
-        Debug.Log("終わり");
+        //オーディオと文字のフェード開始
+        isFadeStart = true;
         yield return null;
     }
 
     public void OnSkip()//スキップ時に呼ぶ
     {
         isSkip = true;
+    }
+
+    public void FadeWordandAudio()
+    {
+        if(UseFadeValue<=0f)
+        {
+            isFadeEnd = true;
+        }
+        else
+        {
+            UseFadeValue -= FadeSpeed;
+            EndText.color = new Color(EndText.color.r,EndText.color.g,EndText.color.b,UseFadeValue);
+            endrollBGM.SetVolume(UseFadeValue);
+        }
     }
 }
