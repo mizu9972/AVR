@@ -2934,7 +2934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4019450511605446556}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.40998095, z: 0}
+  m_LocalPosition: {x: 0, y: -0.40998095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4718981053891920513}
@@ -6582,9 +6582,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8828855417520734096}
   - component: {fileID: 8912242425281366120}
+  - component: {fileID: 2039366966089010963}
+  - component: {fileID: 8455605794447325811}
+  - component: {fileID: 132109688607200132}
   m_Layer: 0
   m_Name: ChildSpider
-  m_TagString: Untagged
+  m_TagString: minispider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6621,6 +6624,48 @@ MonoBehaviour:
   speed: 1
   moveTime: 0
   stopTime: 0
+--- !u!64 &2039366966089010963
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200410148270466346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8545447256379345787, guid: 284fc6895478efb478cd7b6dfb38abd6, type: 3}
+--- !u!114 &8455605794447325811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200410148270466346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95f104dd4b524d4cbe04d3a7012b868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spiders: {fileID: 8200410148270466346}
+  hpmax: 100
+  hpflag: 1
+--- !u!114 &132109688607200132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200410148270466346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053be6a7cbf6e17418c5206f983f5655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 30
 --- !u!1 &8383198735515451809
 GameObject:
   m_ObjectHideFlags: 0
