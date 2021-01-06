@@ -27,6 +27,11 @@ public class PianistAction : MonoBehaviour
     private bool isAttackableMode = false;
     private bool AttackFlag = false;
     private bool isInsideCamera = false;
+
+    private bool isChairSwing = false;
+
+    public bool IsChairSwing { get { return isChairSwing; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +63,10 @@ public class PianistAction : MonoBehaviour
             {
                 //椅子で攻撃アニメ
                 PianistAnim.AttackwithChair();
+
+                Observable.Timer(System.TimeSpan.FromSeconds(1))
+                    .Subscribe(_ =>
+                isChairSwing = true);
 
                 AttackFlag = false;
             }
