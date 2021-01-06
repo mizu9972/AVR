@@ -12,6 +12,8 @@ public class Spider : MonoBehaviour
     [SerializeField] private float moveTime;
     [SerializeField] private float stopTime;
 
+    private Animator animator;
+
     private void Start()
     {
 
@@ -22,6 +24,8 @@ public class Spider : MonoBehaviour
         this.transform.position = this.transform.position + new Vector3(hankei, 0, 0);
         moveTime = MoveTime();
         stopTime = StopTime();
+
+        animator = GetComponentInChildren<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -30,12 +34,17 @@ public class Spider : MonoBehaviour
         //moveTimeが0以上なら行動する
         if (moveTime > 0)
         {
+
             //正面に進む
             //this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
             //Quaternion targetRotation = Quaternion.LookRotation(initPos - this.transform.position);
             //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime );
-
+            animator.SetTrigger("Walk");
             transform.RotateAround(centerPos, new Vector3(0, -1.0f, .0f), speed * Time.deltaTime);
+        }
+        else
+        {
+            animator.SetTrigger("Stop");
         }
         //moveTimeが0以下なら次のポイントを設定する
         if (moveTime < 0)
