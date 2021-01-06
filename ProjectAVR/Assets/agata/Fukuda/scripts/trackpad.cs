@@ -16,9 +16,15 @@ public class trackpad : MonoBehaviour
     [SerializeField]
     float speed = 1f;
 
+    [SerializeField]
+    public int flagNo;
+
+    // 最初の高さ
+    private float startHight;
+
     void Start()
     {
-        
+        startHight = transform.position.y;
     }
 
     void Update()
@@ -40,16 +46,27 @@ public class trackpad : MonoBehaviour
         camerotate = new Vector3(camerotate.x, 0, camerotate.z);
         Vector3 kakudo = new Vector3(pos.x,0,pos.y) ;
 
-        Vector3 maware = Quaternion.Euler(camerotate) * kakudo;  
+        Vector3 maware = Quaternion.Euler(camerotate) * kakudo;
 
 
         if (r > 0.1)
         {
             //transform.position += maware * speed * Time.deltaTime;
             //transform.rotation = Quaternion.LookRotation(moveForward);
-            transform.position += moveForward *  speed * Time.deltaTime;
+            transform.position += moveForward * speed * Time.deltaTime;
+
+            var hightChack = transform.position;
+
+            hightChack.y = startHight;
+
+            transform.position = hightChack;
+
+            FlagManager.Instance.flags[flagNo] = true;
             //Debug.Log(maware);
             //Debug.Log(kakudo);
+        }
+        else {
+            FlagManager.Instance.flags[flagNo] = false;
         }
         //💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩
 
