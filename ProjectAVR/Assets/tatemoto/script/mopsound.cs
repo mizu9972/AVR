@@ -6,13 +6,13 @@ public class mopsound : MonoBehaviour
 {
     public AudioClip audioClip1;
     private AudioSource audioSource;
-    public float volume;
+    private float volume;
     public float max=0.1f;
     public float mini=0.0f;
     private float n = 1;
     private Vector3 start;
     private Vector3 end;
-    public float distance;
+    private float distance;
     private float totalvolume=0.0f;
     public float Maxtotalvolume = 0;
     public int flagNo = 50;
