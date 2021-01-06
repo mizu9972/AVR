@@ -31,7 +31,7 @@ public class MopYogoreToru : MonoBehaviour
                 col.a = 0.0f;
             }
             other.GetComponent<Renderer>().material.color = col;
-
+    
         }
 
 
