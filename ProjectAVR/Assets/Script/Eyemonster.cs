@@ -8,9 +8,9 @@ public class Eyemonster : MonoBehaviour
     private GameObject eye;
     private int i = 0;
     private bool flg = false;
-
-    private int tu = 600;
-    private int pe = 1200;
+    public GameObject SeSoundBox;
+    private int tu = 6000;
+    private int pe = 12000;
 
     private int nowPeTu = 0;
 
@@ -59,6 +59,14 @@ public class Eyemonster : MonoBehaviour
     {
         i = Random.Range(1, 5);
         flg = i == 1;
+        if(flg)
+        {
+            SeSoundBox.GetComponent<PlaySe>().PlaySound(1);
+        }
+        else
+        {
+            SeSoundBox.GetComponent<PlaySe>().PlaySound(0);
+        }
     }
 
     int Ranyeah()
