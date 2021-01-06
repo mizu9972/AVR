@@ -32,7 +32,7 @@ public class tagcount : MonoBehaviour
     {
         tagObjects = GameObject.FindGameObjectsWithTag(tagname);
         Debug.Log(tagObjects.Length); //tagObjects.Lengthはオブジェクトの数
-        if (tagObjects.Length >= count)
+        if (tagObjects.Length <= count)
         {
             Debug.Log(tagname + "タグがついたオブジェクトはありません");
             FlagManager.Instance.flags[flagNo] = true;
