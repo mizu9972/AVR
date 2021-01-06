@@ -14,12 +14,12 @@ public class Buttonsan : MonoBehaviour
     [SerializeField]private string SceneName = "hora";
 
     [SerializeField] private GameObject pushimage;
-
     [SerializeField] private GameObject startbutton;
     [SerializeField] private GameObject exitbutton;
     [SerializeField] private GameObject titlelogo;
-
     [SerializeField] private GameObject lightdi;
+
+
     private float chikachikatime = 1.0f;
 
     // public Button button;
@@ -45,8 +45,14 @@ public class Buttonsan : MonoBehaviour
 
     private bool starttutorial = false;
 
-    [SerializeField] private GameObject kumo;
     [SerializeField] private GameObject eye;
+    [SerializeField] private GameObject kumo;
+    [SerializeField] private GameObject pianist;
+    [SerializeField] private int jk=0;
+    [SerializeField] private float timef = 0.0f;
+
+    [SerializeField] private GameObject zatu;
+    private bool monflg = false;
     void Start()
     {
         //flg = false;
@@ -72,6 +78,7 @@ public class Buttonsan : MonoBehaviour
 
                 }
                 pushflg = true;
+
             }
             if (pushflg)
             {
@@ -79,7 +86,10 @@ public class Buttonsan : MonoBehaviour
                 pushimage.SetActive(false);
                 startbutton.SetActive(true);
                 exitbutton.SetActive(true);
+                zatu.SetActive(true);
+
             }
+            monsutaderu();
         }
         else
         {
@@ -89,21 +99,32 @@ public class Buttonsan : MonoBehaviour
 
     public void SetSelectable()
     {
+        zatu.SetActive(false);
         //　タブキーを押されたらSelectOnRightに選択された物をフォーカスする
         if (actionToHaptic.GetStateDown(SteamVR_Input_Sources.RightHand))
         {
+
 
                 if (SceneNameNow == SceneName)
                 {
                 SceneNameNow = "Exit";
                     EventSystem.current.SetSelectedGameObject(mySelectable.navigation.selectOnRight.gameObject);
+                startbutton.transform.GetChild(0).gameObject.SetActive(false);
+                startbutton.transform.GetChild(1).gameObject.SetActive(false);
+                exitbutton.transform.GetChild(0).gameObject.SetActive(true);
+                exitbutton.transform.GetChild(1).gameObject.SetActive(true);
+         
 
-                }
+            }
                 else if (SceneNameNow == "Exit")
                 {
                 SceneNameNow = SceneName;
                     EventSystem.current.SetSelectedGameObject(mySelectable2.navigation.selectOnRight.gameObject);
-                }
+                startbutton.transform.GetChild(0).gameObject.SetActive(true);
+                startbutton.transform.GetChild(1).gameObject.SetActive(true);
+                exitbutton.transform.GetChild(0).gameObject.SetActive(false);
+                exitbutton.transform.GetChild(1).gameObject.SetActive(false);
+            }
 
         }
     }
@@ -133,6 +154,7 @@ public class Buttonsan : MonoBehaviour
         Destroy(startbutton);
         Destroy(exitbutton);
         chika = true;
+        zatu.SetActive(true);
         //SceneManager.LoadScene(SceneNameNow);
 
     }
@@ -215,6 +237,61 @@ public class Buttonsan : MonoBehaviour
                 {
                     SceneManager.LoadScene(SceneNameNow);
                 }
+            }
+        }
+    }
+
+
+    private void monsutaderu()
+    {
+        
+
+        timef+=Time.deltaTime;
+        if(timef>=6)
+        {
+            lightdi.SetActive(true);
+            timef = 0;
+            monflg = false;
+        }
+        if (timef>=5.0f && monflg==false)
+        {
+            switch(jk)
+            {
+                case 0:
+                    {
+                        lightdi.SetActive(false);
+                        eye.SetActive(true);
+                        kumo.SetActive(false);
+                        pianist.SetActive(false);
+                        monflg = true;
+                        jk = 1;
+                      
+                        break;
+                    }
+                case 1:
+                    {
+                        lightdi.SetActive(false);
+                        eye.SetActive(false);
+                        kumo.SetActive(true);
+                        pianist.SetActive(false);
+                        monflg = true;
+                        jk = 2;
+                      
+                        break;
+                    }
+                case 2:
+                    {
+                        lightdi.SetActive(false);
+                        eye.SetActive(false);
+                        kumo.SetActive(false);
+                        pianist.SetActive(true);
+                        monflg = true;
+                        jk = 0;
+                    
+                        break;
+                    }
+
+                  
             }
         }
     }
