@@ -27,7 +27,8 @@ public class cameraray1 : MonoBehaviour
             {
                 if(itime*30<=time)
                 {
-                    Destroy(hitobj);
+                    // Destroy(hitobj);
+                    FlagManager.Instance.flags[0] = true;
                 }
             }
             else
