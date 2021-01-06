@@ -9,11 +9,17 @@ public class Eyemonster : MonoBehaviour
     private int i = 0;
     private bool flg = false;
 
+    private int tu = 600;
+    private int pe = 1200;
+
+    private int nowPeTu = 0;
+
     int cnt = 0;
 
     void Start()
     {
         eye= GameObject.Find("pTorus36");
+        nowPeTu = tu;
     }
 
     void Update()
@@ -23,35 +29,36 @@ public class Eyemonster : MonoBehaviour
 
     void GuruGuru()
     {
+        // flg = false;
         if (!flg)
         {
             var targetPos = player.transform.position;
             var targetRot = Quaternion.LookRotation(targetPos - eye.transform.position);
             eye.transform.rotation = Quaternion.RotateTowards(eye.transform.rotation, targetRot, Time.deltaTime * 150);
-            RandumNum();
+            nowPeTu = tu;
         }
         else
         {
             var targetPos = player.transform.position+new Vector3(Ranyeah(), Ranyeah(), Ranyeah());
             var targetRot = Quaternion.LookRotation(targetPos - eye.transform.position);
             eye.transform.rotation = Quaternion.RotateTowards(eye.transform.rotation, targetRot, Time.deltaTime * 360);
+            nowPeTu = pe;
+        }
 
-            cnt++;
-            if (cnt>60)
-            {
-                cnt = 0;
-                flg = false;
-            }
+
+        cnt++;
+        if (cnt > nowPeTu)
+        {
+            RandumNum();
+            cnt = 0;
+            // flg = false;
         }
     }
 
     void RandumNum()
     {
-        i = Random.Range(1, 10);
-        if (i == 1)
-        {
-            flg = true;
-        }
+        i = Random.Range(1, 5);
+        flg = i == 1;
     }
 
     int Ranyeah()
