@@ -18,6 +18,7 @@ public class Scenecange_Title : MonoBehaviour
     {
         if (FlagManager.Instance.flags[scenecangeflag])
         {
+            FlagManager.Instance.ResetFlags();
             SceneManager.LoadScene(scenename);
         }
     }

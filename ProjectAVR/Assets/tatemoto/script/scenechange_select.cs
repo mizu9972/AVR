@@ -27,6 +27,7 @@ public class scenechange_select : MonoBehaviour
     {
         if (FlagManager.Instance.flags[selectNo1])
         {
+            FlagManager.Instance.ResetFlags();
             a = SceneManager.LoadSceneAsync("Stage1");
             //a.allowSceneActivation = true;
             //b=SceneManager.UnloadSceneAsync("stage2");
@@ -34,6 +35,7 @@ public class scenechange_select : MonoBehaviour
         }
         if (FlagManager.Instance.flags[selectNo2])
         {
+            FlagManager.Instance.ResetFlags();
             a = SceneManager.LoadSceneAsync("stage2");
             //b.allowSceneActivation = true;
             //a=SceneManager.UnloadSceneAsync("Stage1");
@@ -41,6 +43,7 @@ public class scenechange_select : MonoBehaviour
         }
         if (FlagManager.Instance.flags[selectNo3])
         {
+            FlagManager.Instance.ResetFlags();
             a = SceneManager.LoadSceneAsync("Stage3");
             //c.allowSceneActivation = true;
             //a=SceneManager.UnloadSceneAsync("Stage1");

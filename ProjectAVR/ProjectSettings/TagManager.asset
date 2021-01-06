@@ -15,6 +15,7 @@ TagManager:
   - door1
   - door2
   - door3
+  - tiku
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - 
   - filed
   - Outline
-  - 
-  - 
+  - Player
+  - Mop
   - 
   - 
   - 

@@ -10,8 +10,6 @@ public class doorscript : MonoBehaviour
     // 設定したフラグの名前
     private const string open = "open";
     private const string close = "close";
-    public GameObject camera;
-    public GameObject camerar;
     public int selectNo;
     public int selectNo1;
     // 初期化メソッド
@@ -30,8 +28,6 @@ public class doorscript : MonoBehaviour
  
             this.animator.SetBool(open, true);
             FlagManager.Instance.flags[selectNo1] = true;
-            camera.GetComponent<trackingoff>().enabled=true;
-            camerar.GetComponent<trackingoff>().enabled = true;
             //this.animator.SetBool(close, false);
         }
         else
