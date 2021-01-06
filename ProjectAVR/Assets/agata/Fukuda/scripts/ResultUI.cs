@@ -17,7 +17,7 @@ public class ResultUI : MonoBehaviour
     {
         if (FlagManager.Instance.flags[flagNo])
         {
-            this.transform.position = new Vector3(1000, 1000, 1000);
+         
             canvas.transform.position = new Vector3(1000, 1000, 1000);
             this.transform.rotation = Quaternion.Euler(0, 0, 0);
             canvas.SetActive(true);
