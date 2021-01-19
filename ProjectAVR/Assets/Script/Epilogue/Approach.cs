@@ -25,7 +25,16 @@ public class Approach : MonoBehaviour
     [Header("手を動かす感覚(秒)")]
     public double m_Interval = 1;
 
-    private bool m_isEnd = false;
+    private bool m_isEnd = false;//全ての手が動き出し終了したかを判定するため
+
+    [SerializeField]
+    private bool m_isStart = false;//スタート管理フラグ
+    public bool isStart
+    {
+        set { m_isStart = value;}
+        get { return m_isStart; }
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,8 +43,9 @@ public class Approach : MonoBehaviour
             Hand.GetComponent<MoveHand>().StartObj = m_Start;
             Hand.GetComponent<MoveHand>().EndObj = m_End;
         }
-        //1発のみの腕の動きをスタート
+        //m_isStartがtrueになれば手の動きスタート
         this.UpdateAsObservable().
+             Where(_=>m_isStart).
              Take(1).
              Subscribe(_ => PlayMoveStart());
     }
