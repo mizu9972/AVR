@@ -464,47 +464,47 @@ PrefabInstance:
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
       propertyPath: m_MoveTable.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
-        type: 3}
-      propertyPath: m_MoveTable.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
-        type: 3}
-      propertyPath: m_MoveTable.Array.data[2]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
-        type: 3}
-      propertyPath: m_MoveTable.Array.data[3]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
-      propertyPath: m_MoveTable.Array.data[4]
-      value: 6
+      propertyPath: m_MoveTable.Array.data[1]
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
-      propertyPath: m_MoveTable.Array.data[5]
+      propertyPath: m_MoveTable.Array.data[2]
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
-      propertyPath: m_MoveTable.Array.data[6]
+      propertyPath: m_MoveTable.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
+        type: 3}
+      propertyPath: m_MoveTable.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
+        type: 3}
+      propertyPath: m_MoveTable.Array.data[5]
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
+      propertyPath: m_MoveTable.Array.data[6]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
+        type: 3}
       propertyPath: m_MoveTable.Array.data[7]
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
       propertyPath: m_MoveTable.Array.data[8]
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3389395406666390959, guid: 8f72d8174ca35044c9d3f8cb1acabe0c,
         type: 3}
