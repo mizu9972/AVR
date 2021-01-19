@@ -16,6 +16,12 @@ public class outlines : MonoBehaviour
     {
         if(FlagManager.Instance.flags[flagNo] == true)
         {
+            var childsTrans = GetComponentsInChildren<Transform>();
+
+            foreach(var itr in childsTrans)
+            {
+                itr.gameObject.layer = 9;
+            }
             this.gameObject.layer = 9;
         }
         else
@@ -23,4 +29,5 @@ public class outlines : MonoBehaviour
             this.gameObject.layer = 0;
         }
     }
+    
 }

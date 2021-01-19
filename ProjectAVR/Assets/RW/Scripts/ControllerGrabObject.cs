@@ -63,6 +63,10 @@ public class ControllerGrabObject : MonoBehaviour
         {
             FlagManager.Instance.flags[3] = true;
         }
+        if (other.gameObject.tag == "tiku")
+        {
+            FlagManager.Instance.flags[66] = true;
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -78,6 +82,26 @@ public class ControllerGrabObject : MonoBehaviour
         if (!collidingObject)
         {
             return;
+        }
+        if (other.gameObject.tag == "door")
+        {
+            FlagManager.Instance.flags[7] = false;
+        }
+        if (other.gameObject.tag == "door1")
+        {
+            FlagManager.Instance.flags[1] = false;
+        }
+        if (other.gameObject.tag == "door2")
+        {
+            FlagManager.Instance.flags[2] = false;
+        }
+        if (other.gameObject.tag == "door3")
+        {
+            FlagManager.Instance.flags[3] = false;
+        }
+        if (other.gameObject.tag == "tiku")
+        {
+            FlagManager.Instance.flags[66] = false;
         }
 
         collidingObject = null;
