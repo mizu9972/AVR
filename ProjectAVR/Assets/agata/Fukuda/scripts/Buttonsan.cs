@@ -68,6 +68,16 @@ public class Buttonsan : MonoBehaviour
 
         if (!chika)
         {
+           
+            if (pushflg)
+            {
+                SetSelectable();
+                pushimage.SetActive(false);
+                startbutton.SetActive(true);
+                exitbutton.SetActive(true);
+                
+
+            }
             if (grab.GetStateDown(SteamVR_Input_Sources.RightHand))
             //if(Input.anyKey) //testよう
             {
@@ -77,16 +87,12 @@ public class Buttonsan : MonoBehaviour
                     StartGame();
 
                 }
-                pushflg = true;
+                else
+                {
+                    zatu.SetActive(true);
+                }
 
-            }
-            if (pushflg)
-            {
-                SetSelectable();
-                pushimage.SetActive(false);
-                startbutton.SetActive(true);
-                exitbutton.SetActive(true);
-                zatu.SetActive(true);
+                pushflg = true;
 
             }
             monsutaderu();
@@ -99,8 +105,8 @@ public class Buttonsan : MonoBehaviour
 
     public void SetSelectable()
     {
-        zatu.SetActive(false);
-        //　タブキーを押されたらSelectOnRightに選択された物をフォーカスする
+        
+      
         if (actionToHaptic.GetStateDown(SteamVR_Input_Sources.RightHand))
         {
 
@@ -113,7 +119,8 @@ public class Buttonsan : MonoBehaviour
                 startbutton.transform.GetChild(1).gameObject.SetActive(false);
                 exitbutton.transform.GetChild(0).gameObject.SetActive(true);
                 exitbutton.transform.GetChild(1).gameObject.SetActive(true);
-         
+                zatu.SetActive(false);
+
 
             }
                 else if (SceneNameNow == "Exit")
@@ -124,6 +131,7 @@ public class Buttonsan : MonoBehaviour
                 startbutton.transform.GetChild(1).gameObject.SetActive(true);
                 exitbutton.transform.GetChild(0).gameObject.SetActive(false);
                 exitbutton.transform.GetChild(1).gameObject.SetActive(false);
+                zatu.SetActive(false);
             }
 
         }
