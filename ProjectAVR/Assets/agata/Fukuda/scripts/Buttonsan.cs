@@ -200,7 +200,7 @@ public class Buttonsan : MonoBehaviour
                 }
                 timel += 1.0f;
                 timekun = 0.0f;
-                chikachikatime -= 0.1f;
+                chikachikatime -= 0.2f;
                 if(chikachikatime<0.1f)
                 {
                     chikachikatime = 0.1f;
@@ -221,9 +221,9 @@ public class Buttonsan : MonoBehaviour
                 }
                 else
                 {
-                    lightdi.SetActive(true);
-                    eye.SetActive(false);
-                    kumo.SetActive(true);
+                    //lightdi.SetActive(true);
+                    //eye.SetActive(false);
+                    //kumo.SetActive(true);
                 }
 
 
@@ -233,7 +233,7 @@ public class Buttonsan : MonoBehaviour
 
                 
 
-                if(timel>5.0f)
+                if(timel>1.0f)
                 {
                     SceneManager.LoadScene(SceneNameNow);
                 }
