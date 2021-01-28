@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Chair1
+    second: {fileID: 2100000, guid: 55b10b51e76fc704e97d32d956caba6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Wood
     second: {fileID: 2100000, guid: 9ad05b763c4def347abad196539123b7, type: 2}
   materials:
