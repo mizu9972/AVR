@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class textscript : MonoBehaviour
 {
@@ -29,10 +30,11 @@ public class textscript : MonoBehaviour
     private Vector3 pos;
     private Transform camera;
     GameObject m;
-
+    [SerializeField]
+    private float leng = 20.0f;
     void Start()
     {
-        m = GameObject.Find("Camera"); //オブジェクトの名前から取得して変数に格納する
+        m = GameObject.Find("NoiseCamera"); //オブジェクトの名前から取得して変数に格納する
         pos = this.transform.position;
 
         loadText1 = textAsset.text;
@@ -110,25 +112,32 @@ public class textscript : MonoBehaviour
     public void chkon()
     {
         catflag = true;
-        m = GameObject.Find("Camera"); //オブジェクトの名前から取得して変数に格納する
+        m = GameObject.Find("NoiseCamera"); //オブジェクトの名前から取得して変数に格納する
 
     }
     public void chkoff()
     {
         catflag = false;
     }
-
-    void Update()
+    public void chlen()
     {
-        if (Input.GetKeyUp(KeyCode.Z))
+        if (this.transform.position.x >= pos.x + leng || this.transform.position.x <= pos.x - leng)
         {
-            chkon();
+            chkoff();
         }
-        if (Input.GetKeyUp(KeyCode.X))
+        if (this.transform.position.y >= pos.y + leng || this.transform.position.y <= pos.y - leng)
+        {
+            chkoff();
+        }
+        if (this.transform.position.z >= pos.z + leng || this.transform.position.z <= pos.z - leng)
         {
             chkoff();
         }
 
+    }
+
+    void Update()
+    {
         if (catflag)
         {
             Vector3 forward = m.transform.TransformDirection(Vector3.forward);
@@ -146,6 +155,7 @@ public class textscript : MonoBehaviour
             forward.y = y;
             forward.z = 0;
             this.transform.localEulerAngles = forward;
+            chlen();
         }
         else
         {
@@ -153,4 +163,11 @@ public class textscript : MonoBehaviour
         }
     }
 
+    public void OnColisionStay()
+    {
+        if (SteamVR_Actions.default_Grab.GetStateDown(SteamVR_Input_Sources.Any))
+        {
+            chkon();
+        }
+    }
 }
