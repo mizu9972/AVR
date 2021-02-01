@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestEn : MonoBehaviour
+public class SetCircleSize : MonoBehaviour
 {
     //半径
     [SerializeField]
