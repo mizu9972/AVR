@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveHand : MonoBehaviour
 {
-    [Header("スピード")]
-    public float m_Speed = 0.0001f;
     //スタート位置オブジェクト
     private GameObject m_StartObj = null;
     public GameObject StartObj
@@ -20,35 +18,64 @@ public class MoveHand : MonoBehaviour
         set { m_EndObj = value; }
     }
 
-    [SerializeField, Header("アクティブ状態")]
+    //中間地点オブジェクト
+    private GameObject m_CenterObj = null;
+    public GameObject CenterObj
+    {
+        set { m_CenterObj = value; }
+    }
+
+    public List<Transform> waypoint;
+    int count = 0;
+
+
+    [SerializeField]
+    private float speed = 5f;
+    public float Speed
+    {
+        set { speed = value;}
+    }
+
+
+    [SerializeField]
+    private bool m_isMoving = false;
+    public bool isMoving
+    {
+        get { return m_isMoving; }
+    }
+
+    [SerializeField]
     private bool m_isActive = false;
     public bool isActive
     {
-        set { m_isActive = value; }
         get { return m_isActive; }
+        set { m_isActive = value; }
     }
 
     private Transform MyTrans = null;
-    private float m_NowTime = 0f;
-    private float m_Zpos = 0f;
-    // Start is called before the first frame update
+
     void Start()
     {
         MyTrans = this.GetComponent<Transform>();
+        
+        //先頭と最後尾を設定
+        waypoint[0] = m_StartObj.transform;
+        waypoint[waypoint.Count - 1] = m_EndObj.transform;
 
-        if(m_StartObj)//スタート位置にオブジェクトをセット(Zのみ)
-        { 
-            MyTrans.position = new Vector3(MyTrans.position.x, 
-                                           MyTrans.position.y, 
-                                           m_StartObj.transform.position.z);
-            m_Zpos = MyTrans.position.z;
+        //中間地点が設定されていればセット(デフォルト設定使用)
+        if(m_CenterObj!=null)
+        {
+            waypoint[1] = m_CenterObj.transform;
         }
+
+        //スタート位置の設定
+        MyTrans.position = m_StartObj.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_isActive)//アクティブ状態の時のみ移動関数実行
+        if (m_isActive)//アクティブ状態の時のみ移動関数実行
         {
             MoveMain();
         }
@@ -56,15 +83,21 @@ public class MoveHand : MonoBehaviour
 
     private void MoveMain()
     {
-        m_NowTime += m_Speed;
-        //Z座標の更新
-        m_Zpos = Mathf.Lerp(m_StartObj.transform.position.z,
-                            m_EndObj.transform.position.z, 
-                            m_NowTime);
-
-        MyTrans.position = new Vector3(MyTrans.position.x, MyTrans.position.y, m_Zpos);
-
-        //エンドポイントに到着したらisActiveをfalseに
-
+        Vector3 d = waypoint[count].transform.position - transform.position;
+        if (d.magnitude < speed * Time.deltaTime)
+        {
+            transform.position += d;
+            count++;
+            if (count >= waypoint.Count)
+            {
+                m_isMoving = false;
+                m_isActive = false;
+            }
+            return;
+        }
+        d.Normalize();
+        transform.position += d * Time.deltaTime * speed;
+        
+        m_isMoving = true;
     }
 }
