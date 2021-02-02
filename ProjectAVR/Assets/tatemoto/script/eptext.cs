@@ -18,11 +18,15 @@ public class eptext : MonoBehaviour
     private float timeUntilDisplay = 0;     // 表示にかかる時間
     private float timeBeganDisplay = 1;         // 文字列の表示を開始した時間
     public int lastUpdateCharCount = -1;       // 表示中の文字数
+    public GameObject lplp;
+    private Approach ooo;
+    public GameObject lll;
 
 
     void Start()
     {
         SetNextSentence();
+        ooo = lplp.GetComponent<Approach>();
     }
 
 
@@ -40,6 +44,9 @@ public class eptext : MonoBehaviour
             {
                 currentSentenceNum = 0;
                 FlagManager.Instance.flags[100] = true;
+                ooo.isStart=true;
+                FlagManager.Instance.flags[127] = false;
+                lll.SetActive(false);
             }
         }
         else
