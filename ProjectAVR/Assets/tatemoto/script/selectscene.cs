@@ -5,12 +5,14 @@ using UnityEngine;
 public class selectscene : MonoBehaviour
 {
     public GameObject camera;
+    public GameObject endtext;
     public int selectNo1;
     public int selectNo2;
     public int selectNo3;
     public int selectNo4;
     public int selectNo5;
     public int selectNo6;
+    public int selectEnd=127;
     private move_Player move;
     public Vector3 endpo; 
     // Start is called before the first frame update
@@ -22,7 +24,12 @@ public class selectscene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FlagManager.Instance.flags[selectNo1])
+        if (FlagManager.Instance.flags[selectEnd])
+        {
+            this.GetComponent<endscript>().enabled = true;
+            endtext.SetActive(true);
+        }
+            if (FlagManager.Instance.flags[selectNo1])
         {
             endpo.x = 5.7f;
             endpo.y = -1.819f;

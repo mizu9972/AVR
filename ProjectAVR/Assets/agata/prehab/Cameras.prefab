@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1185661610810068097}
   - component: {fileID: 8332455916522697091}
   - component: {fileID: 7251235711517664831}
+  - component: {fileID: 264431711522762804}
   m_Layer: 10
   m_Name: Cameras
   m_TagString: Player
@@ -65,6 +66,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &264431711522762804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185661610810068096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589487fbd88531a44ae5001cfea1f7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Post_Outline: {fileID: 4800000, guid: 0dce516c4ea96084a934945a321e7084, type: 3}
+  DrawSimple: {fileID: 4800000, guid: 7670b6f74cd22ee4b93e204ce14122a7, type: 3}
+  outlineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1185661612083355697
 GameObject:
   m_ObjectHideFlags: 0
