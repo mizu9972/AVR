@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bc303d472ce7634a8708d39cf3dd81f
+guid: ec8582d1faecd384eaa26533f0c774eb
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: phongE3
-    second: {fileID: 2100000, guid: d4573f75ebef56342a2683733a181b42, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE4
-    second: {fileID: 2100000, guid: 263d884e7fe21154bbab845dbeda3861, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: phongE5
-    second: {fileID: 2100000, guid: ee29bf0711cc8974f92292c9ca54263f, type: 2}
+      name: M_CoffeeServer
+    second: {fileID: 2100000, guid: 27dfdc86343ad4943b57c8264463856a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -88,7 +78,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -107,7 +97,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
