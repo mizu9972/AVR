@@ -8,7 +8,7 @@ public class cameraray1 : MonoBehaviour
     public GameObject hitobj;
     public float radius;
     public int itime;
-    private int time;
+    public int time;
 
     [SerializeField] private int flgno = 0;
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class cameraray1 : MonoBehaviour
                 if(itime*30<=time)
                 {
                     // Destroy(hitobj);
-                    FlagManager.Instance.flags[flgno] = true;
+                    FlagManager.Instance.flags[flgno] = false;
                 }
             }
             else
