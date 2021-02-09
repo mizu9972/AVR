@@ -25,7 +25,7 @@ public class doorscript : MonoBehaviour
 
         if (FlagManager.Instance.flags[selectNo] && FlagManager.Instance.flags[20])
         {
- 
+            FlagManager.Instance.flags[120] = true;
             this.animator.SetBool(open, true);
             FlagManager.Instance.flags[selectNo1] = true;
             //this.animator.SetBool(close, false);
