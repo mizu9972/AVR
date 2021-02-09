@@ -32,6 +32,8 @@ public class CreateNoiseRenTex : MonoBehaviour
         //int AntiAreas = QualitySettings.antiAliasing == 0 ? 1 : QualitySettings.antiAliasing;
         //m_LeftEyeRenderTexture.antiAliasing = AntiAreas;
         //m_RightEyeRenderTexture.antiAliasing = AntiAreas;
+
+        var asad = this.GetComponent<Collider>();
     }
 
     //public void RenderMaterial(Material material)
