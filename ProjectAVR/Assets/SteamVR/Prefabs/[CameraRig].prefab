@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 11489174}
   - component: {fileID: 1275781750327647459}
   - component: {fileID: 6086988151473250883}
+  - component: {fileID: 7169661301101342185}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Player
@@ -145,6 +146,20 @@ MonoBehaviour:
   oko: 0
   max: 300
   flagno: 26
+--- !u!114 &7169661301101342185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a25f7bb144cbc4d94f39123f5308d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Flag: 120
+  player: {fileID: 3777978562514983591}
 --- !u!1 &1000014254142504
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,20 +935,6 @@ Transform:
   m_Father: {fileID: 7558719386899824763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4005903497456884440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3777978561371207190}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f62c0d41cd6c76438164adf06f041fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  flagNo: 30
 --- !u!114 &1575434482732564040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,6 +952,20 @@ MonoBehaviour:
   blendDistance: 0
   weight: 0.426
   priority: 0
+--- !u!114 &4005903497456884440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777978561371207190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f62c0d41cd6c76438164adf06f041fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  flagNo: 30
 --- !u!114 &5709653978899908587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1985,12 +2000,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4, type: 3}
---- !u!4 &3777978562514983590 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1185661610810068097, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2601465987959739943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3777978562514983591 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1185661610810068096, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
@@ -2012,6 +2021,12 @@ Transform:
 --- !u!1 &3777978561371207190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1185661612083355697, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2601465987959739943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3777978562514983590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1185661610810068097, guid: 04fce665bdbcddf4ca7b1a4a1b325ea4,
     type: 3}
   m_PrefabInstance: {fileID: 2601465987959739943}
   m_PrefabAsset: {fileID: 0}
